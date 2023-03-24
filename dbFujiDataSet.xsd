@@ -128,7 +128,7 @@ SELECT prodID, prodName, prodImage, prodAuthor, prodSerial, prodStatus, prodVolu
               <Mapping SourceColumn="prodDemograph" DataSetColumn="prodDemograph" />
               <Mapping SourceColumn="prodInStock" DataSetColumn="prodInStock" />
               <Mapping SourceColumn="prodDeluxe" DataSetColumn="prodDeluxe" />
-              <Mapping SourceColumn="prodQuantity" DataSetColumn="prodQuantity" />
+              <Mapping SourceColumn="prodQuantity" DataSetColumn="prodPrice" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -140,10 +140,10 @@ SELECT prodID, prodName, prodImage, prodAuthor, prodSerial, prodStatus, prodVolu
   <xs:element name="dbFujiDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dbFujiDataSet" msprop:Generator_UserDSName="dbFujiDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Product" msprop:Generator_TableClassName="ProductDataTable" msprop:Generator_TableVarName="tableProduct" msprop:Generator_TablePropName="Product" msprop:Generator_RowDeletingName="ProductRowDeleting" msprop:Generator_RowChangingName="ProductRowChanging" msprop:Generator_RowEvHandlerName="ProductRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductRowDeleted" msprop:Generator_UserTableName="Product" msprop:Generator_RowChangedName="ProductRowChanged" msprop:Generator_RowEvArgName="ProductRowChangeEvent" msprop:Generator_RowClassName="ProductRow">
+        <xs:element name="Product" msprop:Generator_TableClassName="ProductDataTable" msprop:Generator_TableVarName="tableProduct" msprop:Generator_RowChangedName="ProductRowChanged" msprop:Generator_TablePropName="Product" msprop:Generator_RowDeletingName="ProductRowDeleting" msprop:Generator_RowChangingName="ProductRowChanging" msprop:Generator_RowEvHandlerName="ProductRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductRowDeleted" msprop:Generator_RowClassName="ProductRow" msprop:Generator_UserTableName="Product" msprop:Generator_RowEvArgName="ProductRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="prodID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnprodID" msprop:Generator_ColumnPropNameInRow="prodID" msprop:Generator_ColumnPropNameInTable="prodIDColumn" msprop:Generator_UserColumnName="prodID" type="xs:int" />
+              <xs:element name="prodID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnprodID" msprop:Generator_ColumnPropNameInRow="prodID" msprop:Generator_ColumnPropNameInTable="prodIDColumn" msprop:Generator_UserColumnName="prodID" type="xs:int" />
               <xs:element name="prodName" msprop:Generator_ColumnVarNameInTable="columnprodName" msprop:Generator_ColumnPropNameInRow="prodName" msprop:Generator_ColumnPropNameInTable="prodNameColumn" msprop:Generator_UserColumnName="prodName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -192,7 +192,7 @@ SELECT prodID, prodName, prodImage, prodAuthor, prodSerial, prodStatus, prodVolu
               </xs:element>
               <xs:element name="prodInStock" msprop:Generator_ColumnVarNameInTable="columnprodInStock" msprop:Generator_ColumnPropNameInRow="prodInStock" msprop:Generator_ColumnPropNameInTable="prodInStockColumn" msprop:Generator_UserColumnName="prodInStock" type="xs:boolean" minOccurs="0" />
               <xs:element name="prodDeluxe" msprop:Generator_ColumnVarNameInTable="columnprodDeluxe" msprop:Generator_ColumnPropNameInRow="prodDeluxe" msprop:Generator_ColumnPropNameInTable="prodDeluxeColumn" msprop:Generator_UserColumnName="prodDeluxe" type="xs:boolean" minOccurs="0" />
-              <xs:element name="prodQuantity" msprop:Generator_ColumnVarNameInTable="columnprodQuantity" msprop:Generator_ColumnPropNameInRow="prodQuantity" msprop:Generator_ColumnPropNameInTable="prodQuantityColumn" msprop:Generator_UserColumnName="prodQuantity" type="xs:int" minOccurs="0" />
+              <xs:element name="prodPrice" msprop:Generator_ColumnVarNameInTable="columnprodPrice" msprop:Generator_ColumnPropNameInRow="prodPrice" msprop:Generator_ColumnPropNameInTable="prodPriceColumn" msprop:Generator_UserColumnName="prodPrice" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

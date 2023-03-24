@@ -309,7 +309,7 @@ Partial Public Class dbFujiDataSet
         
         Private columnprodDeluxe As Global.System.Data.DataColumn
         
-        Private columnprodQuantity As Global.System.Data.DataColumn
+        Private columnprodPrice As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -452,9 +452,9 @@ Partial Public Class dbFujiDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property prodQuantityColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property prodPriceColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnprodQuantity
+                Return Me.columnprodPrice
             End Get
         End Property
         
@@ -495,9 +495,9 @@ Partial Public Class dbFujiDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddProductRow(ByVal prodName As String, ByVal prodImage() As Byte, ByVal prodAuthor As String, ByVal prodSerial As String, ByVal prodStatus As String, ByVal prodVolume As Integer, ByVal prodChapter As Integer, ByVal prodPublish As Date, ByVal prodGenre As String, ByVal prodDemograph As String, ByVal prodInStock As Boolean, ByVal prodDeluxe As Boolean, ByVal prodQuantity As Integer) As ProductRow
+        Public Overloads Function AddProductRow(ByVal prodName As String, ByVal prodImage() As Byte, ByVal prodAuthor As String, ByVal prodSerial As String, ByVal prodStatus As String, ByVal prodVolume As Integer, ByVal prodChapter As Integer, ByVal prodPublish As Date, ByVal prodGenre As String, ByVal prodDemograph As String, ByVal prodInStock As Boolean, ByVal prodDeluxe As Boolean, ByVal prodPrice As Double) As ProductRow
             Dim rowProductRow As ProductRow = CType(Me.NewRow,ProductRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, prodName, prodImage, prodAuthor, prodSerial, prodStatus, prodVolume, prodChapter, prodPublish, prodGenre, prodDemograph, prodInStock, prodDeluxe, prodQuantity}
+            Dim columnValuesArray() As Object = New Object() {Nothing, prodName, prodImage, prodAuthor, prodSerial, prodStatus, prodVolume, prodChapter, prodPublish, prodGenre, prodDemograph, prodInStock, prodDeluxe, prodPrice}
             rowProductRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowProductRow)
             Return rowProductRow
@@ -539,7 +539,7 @@ Partial Public Class dbFujiDataSet
             Me.columnprodDemograph = MyBase.Columns("prodDemograph")
             Me.columnprodInStock = MyBase.Columns("prodInStock")
             Me.columnprodDeluxe = MyBase.Columns("prodDeluxe")
-            Me.columnprodQuantity = MyBase.Columns("prodQuantity")
+            Me.columnprodPrice = MyBase.Columns("prodPrice")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -571,12 +571,11 @@ Partial Public Class dbFujiDataSet
             MyBase.Columns.Add(Me.columnprodInStock)
             Me.columnprodDeluxe = New Global.System.Data.DataColumn("prodDeluxe", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnprodDeluxe)
-            Me.columnprodQuantity = New Global.System.Data.DataColumn("prodQuantity", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnprodQuantity)
+            Me.columnprodPrice = New Global.System.Data.DataColumn("prodPrice", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnprodPrice)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnprodID}, true))
             Me.columnprodID.AutoIncrement = true
-            Me.columnprodID.AutoIncrementSeed = -1
-            Me.columnprodID.AutoIncrementStep = -1
+            Me.columnprodID.AutoIncrementSeed = 1
             Me.columnprodID.AllowDBNull = false
             Me.columnprodID.ReadOnly = true
             Me.columnprodID.Unique = true
@@ -923,16 +922,16 @@ Partial Public Class dbFujiDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property prodQuantity() As Integer
+        Public Property prodPrice() As Double
             Get
                 Try 
-                    Return CType(Me(Me.tableProduct.prodQuantityColumn),Integer)
+                    Return CType(Me(Me.tableProduct.prodPriceColumn),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'prodQuantity' in table 'Product' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'prodPrice' in table 'Product' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableProduct.prodQuantityColumn) = value
+                Me(Me.tableProduct.prodPriceColumn) = value
             End Set
         End Property
         
@@ -1082,14 +1081,14 @@ Partial Public Class dbFujiDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsprodQuantityNull() As Boolean
-            Return Me.IsNull(Me.tableProduct.prodQuantityColumn)
+        Public Function IsprodPriceNull() As Boolean
+            Return Me.IsNull(Me.tableProduct.prodPriceColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetprodQuantityNull()
-            Me(Me.tableProduct.prodQuantityColumn) = Global.System.Convert.DBNull
+        Public Sub SetprodPriceNull()
+            Me(Me.tableProduct.prodPriceColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1272,7 +1271,7 @@ Namespace dbFujiDataSetTableAdapters
             tableMapping.ColumnMappings.Add("prodDemograph", "prodDemograph")
             tableMapping.ColumnMappings.Add("prodInStock", "prodInStock")
             tableMapping.ColumnMappings.Add("prodDeluxe", "prodDeluxe")
-            tableMapping.ColumnMappings.Add("prodQuantity", "prodQuantity")
+            tableMapping.ColumnMappings.Add("prodQuantity", "prodPrice")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
