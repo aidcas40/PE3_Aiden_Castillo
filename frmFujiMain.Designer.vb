@@ -89,6 +89,7 @@ Partial Class frmFujiMain
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnClose = New System.Windows.Forms.Button()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         lblProdImage = New System.Windows.Forms.Label()
         lblProdID = New System.Windows.Forms.Label()
         lblProdName = New System.Windows.Forms.Label()
@@ -444,6 +445,8 @@ Partial Class frmFujiMain
         '
         Me.dtpProdPublish.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProductBindingSource, "prodPublish", True))
         Me.dtpProdPublish.Location = New System.Drawing.Point(677, 152)
+        Me.dtpProdPublish.MaxDate = New Date(2099, 12, 31, 0, 0, 0, 0)
+        Me.dtpProdPublish.MinDate = New Date(1950, 1, 1, 0, 0, 0, 0)
         Me.dtpProdPublish.Name = "dtpProdPublish"
         Me.dtpProdPublish.Size = New System.Drawing.Size(200, 23)
         Me.dtpProdPublish.TabIndex = 8
@@ -492,6 +495,7 @@ Partial Class frmFujiMain
         Me.btnBack.Size = New System.Drawing.Size(115, 31)
         Me.btnBack.TabIndex = 12
         Me.btnBack.Text = "Back"
+        Me.ToolTip1.SetToolTip(Me.btnBack, "Goes to the previous item")
         Me.btnBack.UseVisualStyleBackColor = False
         '
         'btnNext
@@ -507,6 +511,7 @@ Partial Class frmFujiMain
         Me.btnNext.Size = New System.Drawing.Size(115, 31)
         Me.btnNext.TabIndex = 13
         Me.btnNext.Text = "Next"
+        Me.ToolTip1.SetToolTip(Me.btnNext, "Goes to the next item")
         Me.btnNext.UseVisualStyleBackColor = False
         '
         'btnAdd
@@ -522,6 +527,7 @@ Partial Class frmFujiMain
         Me.btnAdd.Size = New System.Drawing.Size(115, 31)
         Me.btnAdd.TabIndex = 14
         Me.btnAdd.Text = "Add"
+        Me.ToolTip1.SetToolTip(Me.btnAdd, "Adds an item")
         Me.btnAdd.UseVisualStyleBackColor = False
         '
         'btnUpdate
@@ -537,6 +543,7 @@ Partial Class frmFujiMain
         Me.btnUpdate.Size = New System.Drawing.Size(115, 31)
         Me.btnUpdate.TabIndex = 15
         Me.btnUpdate.Text = "Update"
+        Me.ToolTip1.SetToolTip(Me.btnUpdate, "Updates or Saves an item")
         Me.btnUpdate.UseVisualStyleBackColor = False
         '
         'btnDelete
@@ -552,6 +559,7 @@ Partial Class frmFujiMain
         Me.btnDelete.Size = New System.Drawing.Size(115, 31)
         Me.btnDelete.TabIndex = 16
         Me.btnDelete.Text = "Delete"
+        Me.ToolTip1.SetToolTip(Me.btnDelete, "Deletes an item")
         Me.btnDelete.UseVisualStyleBackColor = False
         '
         'ProductTableAdapter
@@ -673,6 +681,7 @@ Partial Class frmFujiMain
         Me.btnSearch.Size = New System.Drawing.Size(115, 31)
         Me.btnSearch.TabIndex = 35
         Me.btnSearch.Text = "Search"
+        Me.ToolTip1.SetToolTip(Me.btnSearch, "Searches for an item")
         Me.btnSearch.UseVisualStyleBackColor = False
         '
         'txtSearch
@@ -683,6 +692,7 @@ Partial Class frmFujiMain
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(237, 27)
         Me.txtSearch.TabIndex = 17
+        Me.ToolTip1.SetToolTip(Me.txtSearch, "Searches for an item")
         '
         'btnClose
         '
@@ -698,6 +708,7 @@ Partial Class frmFujiMain
         Me.btnClose.Size = New System.Drawing.Size(115, 31)
         Me.btnClose.TabIndex = 36
         Me.btnClose.Text = "Close"
+        Me.ToolTip1.SetToolTip(Me.btnClose, "Terminates the application")
         Me.btnClose.UseVisualStyleBackColor = False
         '
         'frmFujiMain
@@ -819,4 +830,5 @@ Partial Class frmFujiMain
     Friend WithEvents btnSearch As Button
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents btnClose As Button
+    Friend WithEvents ToolTip1 As ToolTip
 End Class
