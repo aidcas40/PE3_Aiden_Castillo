@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmFujiMain
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmFujiMain
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim lblProdImage As System.Windows.Forms.Label
@@ -30,16 +30,16 @@ Partial Class frmFujiMain
         Dim lblProdSerial As System.Windows.Forms.Label
         Dim lblProdDemograph As System.Windows.Forms.Label
         Dim lblProdVolume As System.Windows.Forms.Label
-        Dim lblProdChapter As System.Windows.Forms.Label
         Dim lblProdStatus As System.Windows.Forms.Label
         Dim lblProdPublish As System.Windows.Forms.Label
         Dim lblProdGenre As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFujiMain))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim lblProdChapter As System.Windows.Forms.Label
         Me.ProductBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbFujiDataSet = New PE3_Aiden_Castillo.dbFujiDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -52,28 +52,34 @@ Partial Class frmFujiMain
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ProductBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblHeader = New System.Windows.Forms.Label()
-        Me.pctProdImage = New System.Windows.Forms.PictureBox()
         Me.txtProdID = New System.Windows.Forms.TextBox()
         Me.txtProdName = New System.Windows.Forms.TextBox()
         Me.txtProdAuthor = New System.Windows.Forms.TextBox()
         Me.cbxProdSerial = New System.Windows.Forms.ComboBox()
         Me.cbxProdDemograph = New System.Windows.Forms.ComboBox()
         Me.nudProdVolume = New System.Windows.Forms.NumericUpDown()
-        Me.nudProdChapter = New System.Windows.Forms.NumericUpDown()
         Me.cbxProdStatus = New System.Windows.Forms.ComboBox()
         Me.dtpProdPublish = New System.Windows.Forms.DateTimePicker()
         Me.chkProdInStock = New System.Windows.Forms.CheckBox()
         Me.chkProdDeluxe = New System.Windows.Forms.CheckBox()
         Me.chklstProdGenre = New System.Windows.Forms.CheckedListBox()
-        Me.btnBack = New System.Windows.Forms.Button()
-        Me.btnNext = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.ProductTableAdapter = New PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.ProductTableAdapter()
-        Me.TableAdapterManager = New PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.TableAdapterManager()
         Me.dgvProduct = New System.Windows.Forms.DataGridView()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.btnNext = New System.Windows.Forms.Button()
+        Me.btnBack = New System.Windows.Forms.Button()
+        Me.pctProdImage = New System.Windows.Forms.PictureBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.nudProdChapter = New System.Windows.Forms.NumericUpDown()
+        Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbFujiDataSet = New PE3_Aiden_Castillo.dbFujiDataSet()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
@@ -87,11 +93,8 @@ Partial Class frmFujiMain
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DataGridViewCheckBoxColumn2 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.btnSearch = New System.Windows.Forms.Button()
-        Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.btnClose = New System.Windows.Forms.Button()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.ProductTableAdapter = New PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.ProductTableAdapter()
+        Me.TableAdapterManager = New PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.TableAdapterManager()
         lblProdImage = New System.Windows.Forms.Label()
         lblProdID = New System.Windows.Forms.Label()
         lblProdName = New System.Windows.Forms.Label()
@@ -99,19 +102,20 @@ Partial Class frmFujiMain
         lblProdSerial = New System.Windows.Forms.Label()
         lblProdDemograph = New System.Windows.Forms.Label()
         lblProdVolume = New System.Windows.Forms.Label()
-        lblProdChapter = New System.Windows.Forms.Label()
         lblProdStatus = New System.Windows.Forms.Label()
         lblProdPublish = New System.Windows.Forms.Label()
         lblProdGenre = New System.Windows.Forms.Label()
+        lblProdChapter = New System.Windows.Forms.Label()
         CType(Me.ProductBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProductBindingNavigator.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nudProdVolume, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvProduct, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctProdImage, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nudProdChapter, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbFujiDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
-        CType(Me.pctProdImage, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nudProdVolume, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nudProdChapter, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvProduct, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblProdImage
@@ -177,15 +181,6 @@ Partial Class frmFujiMain
         lblProdVolume.TabIndex = 17
         lblProdVolume.Text = "Volume:"
         '
-        'lblProdChapter
-        '
-        lblProdChapter.AutoSize = True
-        lblProdChapter.Location = New System.Drawing.Point(598, 79)
-        lblProdChapter.Name = "lblProdChapter"
-        lblProdChapter.Size = New System.Drawing.Size(62, 16)
-        lblProdChapter.TabIndex = 19
-        lblProdChapter.Text = "Chapter:"
-        '
         'lblProdStatus
         '
         lblProdStatus.AutoSize = True
@@ -227,7 +222,7 @@ Partial Class frmFujiMain
         Me.ProductBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.ProductBindingNavigator.Name = "ProductBindingNavigator"
         Me.ProductBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.ProductBindingNavigator.Size = New System.Drawing.Size(914, 25)
+        Me.ProductBindingNavigator.Size = New System.Drawing.Size(934, 25)
         Me.ProductBindingNavigator.TabIndex = 0
         Me.ProductBindingNavigator.Text = "BindingNavigator1"
         '
@@ -239,16 +234,6 @@ Partial Class frmFujiMain
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "Add new"
-        '
-        'ProductBindingSource
-        '
-        Me.ProductBindingSource.DataMember = "Product"
-        Me.ProductBindingSource.DataSource = Me.DbFujiDataSet
-        '
-        'DbFujiDataSet
-        '
-        Me.DbFujiDataSet.DataSetName = "dbFujiDataSet"
-        Me.DbFujiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -338,12 +323,24 @@ Partial Class frmFujiMain
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.lblHeader)
         Me.Panel1.ForeColor = System.Drawing.SystemColors.Desktop
         Me.Panel1.Location = New System.Drawing.Point(0, 28)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(914, 40)
         Me.Panel1.TabIndex = 2
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.Location = New System.Drawing.Point(836, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(41, 34)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox1.TabIndex = 37
+        Me.PictureBox1.TabStop = False
         '
         'lblHeader
         '
@@ -356,27 +353,13 @@ Partial Class frmFujiMain
         Me.lblHeader.TabIndex = 0
         Me.lblHeader.Text = "Manga Catalogue"
         '
-        'pctProdImage
-        '
-        Me.pctProdImage.BackColor = System.Drawing.Color.White
-        Me.pctProdImage.BackgroundImage = Global.PE3_Aiden_Castillo.My.Resources.Resources.icons8_add_new_100
-        Me.pctProdImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.pctProdImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pctProdImage.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ProductBindingSource, "prodImage", True))
-        Me.pctProdImage.Location = New System.Drawing.Point(38, 79)
-        Me.pctProdImage.Name = "pctProdImage"
-        Me.pctProdImage.Size = New System.Drawing.Size(140, 210)
-        Me.pctProdImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pctProdImage.TabIndex = 4
-        Me.pctProdImage.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.pctProdImage, "Add Image")
-        '
         'txtProdID
         '
         Me.txtProdID.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "prodID", True))
         Me.txtProdID.Location = New System.Drawing.Point(326, 76)
         Me.txtProdID.MaxLength = 100
         Me.txtProdID.Name = "txtProdID"
+        Me.txtProdID.ReadOnly = True
         Me.txtProdID.Size = New System.Drawing.Size(200, 23)
         Me.txtProdID.TabIndex = 0
         '
@@ -422,18 +405,10 @@ Partial Class frmFujiMain
         '
         Me.nudProdVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProductBindingSource, "prodVolume", True))
         Me.nudProdVolume.Location = New System.Drawing.Point(326, 266)
+        Me.nudProdVolume.Maximum = New Decimal(New Integer() {500, 0, 0, 0})
         Me.nudProdVolume.Name = "nudProdVolume"
         Me.nudProdVolume.Size = New System.Drawing.Size(200, 23)
         Me.nudProdVolume.TabIndex = 5
-        '
-        'nudProdChapter
-        '
-        Me.nudProdChapter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.nudProdChapter.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProductBindingSource, "prodChapter", True))
-        Me.nudProdChapter.Location = New System.Drawing.Point(677, 76)
-        Me.nudProdChapter.Name = "nudProdChapter"
-        Me.nudProdChapter.Size = New System.Drawing.Size(200, 23)
-        Me.nudProdChapter.TabIndex = 6
         '
         'cbxProdStatus
         '
@@ -486,69 +461,84 @@ Partial Class frmFujiMain
         Me.chklstProdGenre.Size = New System.Drawing.Size(200, 72)
         Me.chklstProdGenre.TabIndex = 11
         '
-        'btnBack
+        'dgvProduct
         '
-        Me.btnBack.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBack.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBack.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnBack.Image = CType(resources.GetObject("btnBack.Image"), System.Drawing.Image)
-        Me.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnBack.Location = New System.Drawing.Point(38, 320)
-        Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(115, 31)
-        Me.btnBack.TabIndex = 12
-        Me.btnBack.Text = "Back"
-        Me.ToolTip1.SetToolTip(Me.btnBack, "Goes to the previous item")
-        Me.btnBack.UseVisualStyleBackColor = False
+        Me.dgvProduct.AllowUserToAddRows = False
+        Me.dgvProduct.AllowUserToDeleteRows = False
+        Me.dgvProduct.AllowUserToResizeRows = False
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.dgvProduct.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle10
+        Me.dgvProduct.AutoGenerateColumns = False
+        Me.dgvProduct.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.dgvProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.dgvProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvProduct.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        Me.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvProduct.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewImageColumn1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewCheckBoxColumn2})
+        Me.dgvProduct.DataSource = Me.ProductBindingSource
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle12.NullValue = Nothing
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvProduct.DefaultCellStyle = DataGridViewCellStyle12
+        Me.dgvProduct.Location = New System.Drawing.Point(38, 400)
+        Me.dgvProduct.Name = "dgvProduct"
+        Me.dgvProduct.Size = New System.Drawing.Size(842, 220)
+        Me.dgvProduct.TabIndex = 19
         '
-        'btnNext
+        'txtSearch
         '
-        Me.btnNext.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNext.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNext.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnNext.Image = CType(resources.GetObject("btnNext.Image"), System.Drawing.Image)
-        Me.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnNext.Location = New System.Drawing.Point(165, 320)
-        Me.btnNext.Name = "btnNext"
-        Me.btnNext.Size = New System.Drawing.Size(115, 31)
-        Me.btnNext.TabIndex = 13
-        Me.btnNext.Text = "Next"
-        Me.ToolTip1.SetToolTip(Me.btnNext, "Goes to the next item")
-        Me.btnNext.UseVisualStyleBackColor = False
+        Me.txtSearch.Font = New System.Drawing.Font("Inter", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.Location = New System.Drawing.Point(643, 359)
+        Me.txtSearch.MaxLength = 100
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(237, 27)
+        Me.txtSearch.TabIndex = 18
+        Me.ToolTip1.SetToolTip(Me.txtSearch, "Searches for an item")
         '
-        'btnAdd
+        'btnSearch
         '
-        Me.btnAdd.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnAdd.Image = CType(resources.GetObject("btnAdd.Image"), System.Drawing.Image)
-        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAdd.Location = New System.Drawing.Point(522, 320)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(115, 31)
-        Me.btnAdd.TabIndex = 14
-        Me.btnAdd.Text = "Add"
-        Me.ToolTip1.SetToolTip(Me.btnAdd, "Adds an item")
-        Me.btnAdd.UseVisualStyleBackColor = False
+        Me.btnSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearch.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSearch.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnSearch.Image = CType(resources.GetObject("btnSearch.Image"), System.Drawing.Image)
+        Me.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSearch.Location = New System.Drawing.Point(522, 357)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(115, 31)
+        Me.btnSearch.TabIndex = 17
+        Me.btnSearch.Text = "Search"
+        Me.ToolTip1.SetToolTip(Me.btnSearch, "Searches for an item")
+        Me.btnSearch.UseVisualStyleBackColor = False
         '
-        'btnUpdate
+        'btnClose
         '
-        Me.btnUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUpdate.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
-        Me.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnUpdate.Location = New System.Drawing.Point(644, 320)
-        Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(115, 31)
-        Me.btnUpdate.TabIndex = 15
-        Me.btnUpdate.Text = "Update"
-        Me.ToolTip1.SetToolTip(Me.btnUpdate, "Updates or Saves an item")
-        Me.btnUpdate.UseVisualStyleBackColor = False
+        Me.btnClose.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClose.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClose.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
+        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnClose.Location = New System.Drawing.Point(408, 630)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(115, 31)
+        Me.btnClose.TabIndex = 20
+        Me.btnClose.Text = "Close"
+        Me.ToolTip1.SetToolTip(Me.btnClose, "Terminates the application")
+        Me.btnClose.UseVisualStyleBackColor = False
         '
         'btnDelete
         '
@@ -566,40 +556,116 @@ Partial Class frmFujiMain
         Me.ToolTip1.SetToolTip(Me.btnDelete, "Deletes an item")
         Me.btnDelete.UseVisualStyleBackColor = False
         '
-        'ProductTableAdapter
+        'btnUpdate
         '
-        Me.ProductTableAdapter.ClearBeforeFill = True
+        Me.btnUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnUpdate.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
+        Me.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnUpdate.Location = New System.Drawing.Point(644, 320)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(115, 31)
+        Me.btnUpdate.TabIndex = 15
+        Me.btnUpdate.Text = "Update"
+        Me.ToolTip1.SetToolTip(Me.btnUpdate, "Updates or Saves an item")
+        Me.btnUpdate.UseVisualStyleBackColor = False
         '
-        'TableAdapterManager
+        'btnAdd
         '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.ProductTableAdapter = Me.ProductTableAdapter
-        Me.TableAdapterManager.UpdateOrder = PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.btnAdd.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAdd.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnAdd.Image = CType(resources.GetObject("btnAdd.Image"), System.Drawing.Image)
+        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAdd.Location = New System.Drawing.Point(522, 320)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(115, 31)
+        Me.btnAdd.TabIndex = 14
+        Me.btnAdd.Text = "Add"
+        Me.ToolTip1.SetToolTip(Me.btnAdd, "Adds an item")
+        Me.btnAdd.UseVisualStyleBackColor = False
         '
-        'dgvProduct
+        'btnNext
         '
-        Me.dgvProduct.AllowUserToAddRows = False
-        Me.dgvProduct.AllowUserToDeleteRows = False
-        Me.dgvProduct.AllowUserToResizeRows = False
-        Me.dgvProduct.AutoGenerateColumns = False
-        Me.dgvProduct.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.dgvProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
-        Me.dgvProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvProduct.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvProduct.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewImageColumn1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewCheckBoxColumn2})
-        Me.dgvProduct.DataSource = Me.ProductBindingSource
-        Me.dgvProduct.Location = New System.Drawing.Point(38, 400)
-        Me.dgvProduct.Name = "dgvProduct"
-        Me.dgvProduct.Size = New System.Drawing.Size(842, 220)
-        Me.dgvProduct.TabIndex = 18
+        Me.btnNext.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNext.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNext.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnNext.Image = CType(resources.GetObject("btnNext.Image"), System.Drawing.Image)
+        Me.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnNext.Location = New System.Drawing.Point(165, 320)
+        Me.btnNext.Name = "btnNext"
+        Me.btnNext.Size = New System.Drawing.Size(115, 31)
+        Me.btnNext.TabIndex = 13
+        Me.btnNext.Text = "Next"
+        Me.ToolTip1.SetToolTip(Me.btnNext, "Goes to the next item")
+        Me.btnNext.UseVisualStyleBackColor = False
+        '
+        'btnBack
+        '
+        Me.btnBack.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBack.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBack.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnBack.Image = CType(resources.GetObject("btnBack.Image"), System.Drawing.Image)
+        Me.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnBack.Location = New System.Drawing.Point(38, 320)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(115, 31)
+        Me.btnBack.TabIndex = 12
+        Me.btnBack.Text = "Back"
+        Me.ToolTip1.SetToolTip(Me.btnBack, "Goes to the previous item")
+        Me.btnBack.UseVisualStyleBackColor = False
+        '
+        'pctProdImage
+        '
+        Me.pctProdImage.BackColor = System.Drawing.Color.White
+        Me.pctProdImage.BackgroundImage = CType(resources.GetObject("pctProdImage.BackgroundImage"), System.Drawing.Image)
+        Me.pctProdImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.pctProdImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pctProdImage.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ProductBindingSource, "prodImage", True))
+        Me.pctProdImage.Location = New System.Drawing.Point(38, 79)
+        Me.pctProdImage.Name = "pctProdImage"
+        Me.pctProdImage.Size = New System.Drawing.Size(140, 210)
+        Me.pctProdImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pctProdImage.TabIndex = 4
+        Me.pctProdImage.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.pctProdImage, "Add Image")
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'lblProdChapter
+        '
+        lblProdChapter.AutoSize = True
+        lblProdChapter.Location = New System.Drawing.Point(598, 79)
+        lblProdChapter.Name = "lblProdChapter"
+        lblProdChapter.Size = New System.Drawing.Size(62, 16)
+        lblProdChapter.TabIndex = 36
+        lblProdChapter.Text = "Chapter:"
+        '
+        'nudProdChapter
+        '
+        Me.nudProdChapter.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProductBindingSource, "prodChapter", True))
+        Me.nudProdChapter.Location = New System.Drawing.Point(677, 76)
+        Me.nudProdChapter.Maximum = New Decimal(New Integer() {10000, 0, 0, 0})
+        Me.nudProdChapter.Name = "nudProdChapter"
+        Me.nudProdChapter.Size = New System.Drawing.Size(200, 23)
+        Me.nudProdChapter.TabIndex = 6
+        '
+        'ProductBindingSource
+        '
+        Me.ProductBindingSource.DataMember = "Product"
+        Me.ProductBindingSource.DataSource = Me.DbFujiDataSet
+        '
+        'DbFujiDataSet
+        '
+        Me.DbFujiDataSet.DataSetName = "dbFujiDataSet"
+        Me.DbFujiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'DataGridViewTextBoxColumn1
         '
@@ -616,9 +682,12 @@ Partial Class frmFujiMain
         '
         'DataGridViewImageColumn1
         '
+        Me.DataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.DataGridViewImageColumn1.DataPropertyName = "prodImage"
         Me.DataGridViewImageColumn1.HeaderText = "prodImage"
+        Me.DataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
         Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
+        Me.DataGridViewImageColumn1.Width = 80
         '
         'DataGridViewTextBoxColumn3
         '
@@ -680,52 +749,15 @@ Partial Class frmFujiMain
         Me.DataGridViewCheckBoxColumn2.HeaderText = "prodDeluxe"
         Me.DataGridViewCheckBoxColumn2.Name = "DataGridViewCheckBoxColumn2"
         '
-        'btnSearch
+        'ProductTableAdapter
         '
-        Me.btnSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSearch.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnSearch.Image = CType(resources.GetObject("btnSearch.Image"), System.Drawing.Image)
-        Me.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSearch.Location = New System.Drawing.Point(522, 357)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(115, 31)
-        Me.btnSearch.TabIndex = 35
-        Me.btnSearch.Text = "Search"
-        Me.ToolTip1.SetToolTip(Me.btnSearch, "Searches for an item")
-        Me.btnSearch.UseVisualStyleBackColor = False
+        Me.ProductTableAdapter.ClearBeforeFill = True
         '
-        'txtSearch
+        'TableAdapterManager
         '
-        Me.txtSearch.Font = New System.Drawing.Font("Inter", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.Location = New System.Drawing.Point(643, 359)
-        Me.txtSearch.MaxLength = 100
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(237, 27)
-        Me.txtSearch.TabIndex = 17
-        Me.ToolTip1.SetToolTip(Me.txtSearch, "Searches for an item")
-        '
-        'btnClose
-        '
-        Me.btnClose.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClose.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
-        Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClose.Location = New System.Drawing.Point(408, 630)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(115, 31)
-        Me.btnClose.TabIndex = 36
-        Me.btnClose.Text = "Close"
-        Me.ToolTip1.SetToolTip(Me.btnClose, "Terminates the application")
-        Me.btnClose.UseVisualStyleBackColor = False
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.ProductTableAdapter = Me.ProductTableAdapter
+        Me.TableAdapterManager.UpdateOrder = PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'frmFujiMain
         '
@@ -734,7 +766,9 @@ Partial Class frmFujiMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.CancelButton = Me.btnClose
-        Me.ClientSize = New System.Drawing.Size(914, 676)
+        Me.ClientSize = New System.Drawing.Size(934, 681)
+        Me.Controls.Add(lblProdChapter)
+        Me.Controls.Add(Me.nudProdChapter)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.btnSearch)
@@ -752,8 +786,6 @@ Partial Class frmFujiMain
         Me.Controls.Add(Me.dtpProdPublish)
         Me.Controls.Add(lblProdStatus)
         Me.Controls.Add(Me.cbxProdStatus)
-        Me.Controls.Add(lblProdChapter)
-        Me.Controls.Add(Me.nudProdChapter)
         Me.Controls.Add(lblProdVolume)
         Me.Controls.Add(Me.nudProdVolume)
         Me.Controls.Add(lblProdDemograph)
@@ -779,14 +811,15 @@ Partial Class frmFujiMain
         CType(Me.ProductBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ProductBindingNavigator.ResumeLayout(False)
         Me.ProductBindingNavigator.PerformLayout()
-        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbFujiDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.pctProdImage, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudProdVolume, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nudProdChapter, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvProduct, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctProdImage, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nudProdChapter, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbFujiDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -817,7 +850,6 @@ Partial Class frmFujiMain
     Friend WithEvents cbxProdSerial As ComboBox
     Friend WithEvents cbxProdDemograph As ComboBox
     Friend WithEvents nudProdVolume As NumericUpDown
-    Friend WithEvents nudProdChapter As NumericUpDown
     Friend WithEvents cbxProdStatus As ComboBox
     Friend WithEvents dtpProdPublish As DateTimePicker
     Friend WithEvents chkProdInStock As CheckBox
@@ -829,6 +861,14 @@ Partial Class frmFujiMain
     Friend WithEvents btnUpdate As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents dgvProduct As DataGridView
+    Friend WithEvents lblHeader As Label
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents txtSearch As TextBox
+    Friend WithEvents btnClose As Button
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents nudProdChapter As NumericUpDown
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn
@@ -842,10 +882,4 @@ Partial Class frmFujiMain
     Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewCheckBoxColumn1 As DataGridViewCheckBoxColumn
     Friend WithEvents DataGridViewCheckBoxColumn2 As DataGridViewCheckBoxColumn
-    Friend WithEvents lblHeader As Label
-    Friend WithEvents btnSearch As Button
-    Friend WithEvents txtSearch As TextBox
-    Friend WithEvents btnClose As Button
-    Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class
