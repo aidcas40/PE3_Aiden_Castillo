@@ -1,4 +1,12 @@
-﻿Imports System.IO
+﻿'----------------------------------------------------------------------------------
+'Program Title: 		Allegro
+'Program Author: 		Aiden Castillo
+'Date Created:  		25 March, 2023
+'School:			    Corozal Junior College
+'Course Number/Name:	CS206 - Programming II
+'Program Description:	This program demonstrates various database entry functionalities and controls using MS SQL (Individual Work).
+'----------------------------------------------------------------------------------
+Imports System.IO
 Imports System.Data
 Imports System.Data.SqlClient
 Public Class frmFujiMain
