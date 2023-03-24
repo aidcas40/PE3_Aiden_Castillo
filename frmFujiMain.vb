@@ -105,4 +105,14 @@ Public Class frmFujiMain
             search1()
         End If
     End Sub
+
+    'Closes the entire application. Message box ask for confirmation to close application
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Dim msgClose = MessageBox.Show("Are you sure you want to close the application?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If msgClose = Windows.Forms.DialogResult.Yes Then
+            Application.Exit()
+        Else
+            Exit Sub
+        End If
+    End Sub
 End Class
