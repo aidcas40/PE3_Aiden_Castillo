@@ -23,7 +23,6 @@ Partial Class frmFujiMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFujiMain))
         Dim lblProdImage As System.Windows.Forms.Label
         Dim lblProdID As System.Windows.Forms.Label
         Dim lblProdName As System.Windows.Forms.Label
@@ -36,26 +35,23 @@ Partial Class frmFujiMain
         Dim lblProdStatus As System.Windows.Forms.Label
         Dim lblProdPublish As System.Windows.Forms.Label
         Dim lblProdGenre As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFujiMain))
         Me.ProductBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbFujiDataSet = New PE3_Aiden_Castillo.dbFujiDataSet()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.ProductBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.ProductDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.pctProdImage = New System.Windows.Forms.PictureBox()
-        Me.txtProdID = New System.Windows.Forms.TextBox()
-        Me.txtProdName = New System.Windows.Forms.TextBox()
-        Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbFujiDataSet = New PE3_Aiden_Castillo.dbFujiDataSet()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
@@ -69,6 +65,10 @@ Partial Class frmFujiMain
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DataGridViewCheckBoxColumn2 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pctProdImage = New System.Windows.Forms.PictureBox()
+        Me.txtProdID = New System.Windows.Forms.TextBox()
+        Me.txtProdName = New System.Windows.Forms.TextBox()
         Me.ProductTableAdapter = New PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.ProductTableAdapter()
         Me.TableAdapterManager = New PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.TableAdapterManager()
         Me.txtProdPrice = New System.Windows.Forms.TextBox()
@@ -101,13 +101,121 @@ Partial Class frmFujiMain
         lblProdGenre = New System.Windows.Forms.Label()
         CType(Me.ProductBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProductBindingNavigator.SuspendLayout()
-        CType(Me.ProductDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pctProdImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbFujiDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProductDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctProdImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudProdVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudProdChapter, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'lblProdImage
+        '
+        lblProdImage.AutoSize = True
+        lblProdImage.Location = New System.Drawing.Point(91, 292)
+        lblProdImage.Name = "lblProdImage"
+        lblProdImage.Size = New System.Drawing.Size(74, 16)
+        lblProdImage.TabIndex = 3
+        lblProdImage.Text = "Add Image"
+        '
+        'lblProdID
+        '
+        lblProdID.AutoSize = True
+        lblProdID.Location = New System.Drawing.Point(232, 79)
+        lblProdID.Name = "lblProdID"
+        lblProdID.Size = New System.Drawing.Size(77, 16)
+        lblProdID.TabIndex = 5
+        lblProdID.Text = "Product ID:"
+        '
+        'lblProdName
+        '
+        lblProdName.AutoSize = True
+        lblProdName.Location = New System.Drawing.Point(232, 117)
+        lblProdName.Name = "lblProdName"
+        lblProdName.Size = New System.Drawing.Size(48, 16)
+        lblProdName.TabIndex = 7
+        lblProdName.Text = "Name:"
+        '
+        'lblProdPrice
+        '
+        lblProdPrice.AutoSize = True
+        lblProdPrice.Location = New System.Drawing.Point(232, 155)
+        lblProdPrice.Name = "lblProdPrice"
+        lblProdPrice.Size = New System.Drawing.Size(43, 16)
+        lblProdPrice.TabIndex = 9
+        lblProdPrice.Text = "Price:"
+        '
+        'lblProdAuthor
+        '
+        lblProdAuthor.AutoSize = True
+        lblProdAuthor.Location = New System.Drawing.Point(232, 193)
+        lblProdAuthor.Name = "lblProdAuthor"
+        lblProdAuthor.Size = New System.Drawing.Size(55, 16)
+        lblProdAuthor.TabIndex = 11
+        lblProdAuthor.Text = "Author:"
+        '
+        'lblProdSerial
+        '
+        lblProdSerial.AutoSize = True
+        lblProdSerial.Location = New System.Drawing.Point(232, 231)
+        lblProdSerial.Name = "lblProdSerial"
+        lblProdSerial.Size = New System.Drawing.Size(87, 16)
+        lblProdSerial.TabIndex = 13
+        lblProdSerial.Text = "Serialization:"
+        '
+        'lblProdDemograph
+        '
+        lblProdDemograph.AutoSize = True
+        lblProdDemograph.Location = New System.Drawing.Point(232, 269)
+        lblProdDemograph.Name = "lblProdDemograph"
+        lblProdDemograph.Size = New System.Drawing.Size(94, 16)
+        lblProdDemograph.TabIndex = 15
+        lblProdDemograph.Text = "Demographic:"
+        '
+        'lblProdVolume
+        '
+        lblProdVolume.AutoSize = True
+        lblProdVolume.Location = New System.Drawing.Point(501, 79)
+        lblProdVolume.Name = "lblProdVolume"
+        lblProdVolume.Size = New System.Drawing.Size(58, 16)
+        lblProdVolume.TabIndex = 17
+        lblProdVolume.Text = "Volume:"
+        '
+        'lblProdChapter
+        '
+        lblProdChapter.AutoSize = True
+        lblProdChapter.Location = New System.Drawing.Point(501, 117)
+        lblProdChapter.Name = "lblProdChapter"
+        lblProdChapter.Size = New System.Drawing.Size(62, 16)
+        lblProdChapter.TabIndex = 19
+        lblProdChapter.Text = "Chapter:"
+        '
+        'lblProdStatus
+        '
+        lblProdStatus.AutoSize = True
+        lblProdStatus.Location = New System.Drawing.Point(501, 155)
+        lblProdStatus.Name = "lblProdStatus"
+        lblProdStatus.Size = New System.Drawing.Size(52, 16)
+        lblProdStatus.TabIndex = 21
+        lblProdStatus.Text = "Status:"
+        '
+        'lblProdPublish
+        '
+        lblProdPublish.AutoSize = True
+        lblProdPublish.Location = New System.Drawing.Point(501, 193)
+        lblProdPublish.Name = "lblProdPublish"
+        lblProdPublish.Size = New System.Drawing.Size(73, 16)
+        lblProdPublish.TabIndex = 23
+        lblProdPublish.Text = "Published:"
+        '
+        'lblProdGenre
+        '
+        lblProdGenre.AutoSize = True
+        lblProdGenre.Location = New System.Drawing.Point(501, 269)
+        lblProdGenre.Name = "lblProdGenre"
+        lblProdGenre.Size = New System.Drawing.Size(51, 16)
+        lblProdGenre.TabIndex = 28
+        lblProdGenre.Text = "Genre:"
         '
         'ProductBindingNavigator
         '
@@ -126,6 +234,41 @@ Partial Class frmFujiMain
         Me.ProductBindingNavigator.Size = New System.Drawing.Size(1087, 25)
         Me.ProductBindingNavigator.TabIndex = 0
         Me.ProductBindingNavigator.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'ProductBindingSource
+        '
+        Me.ProductBindingSource.DataMember = "Product"
+        Me.ProductBindingSource.DataSource = Me.DbFujiDataSet
+        '
+        'DbFujiDataSet
+        '
+        Me.DbFujiDataSet.DataSetName = "dbFujiDataSet"
+        Me.DbFujiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
+        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Delete"
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -160,16 +303,9 @@ Partial Class frmFujiMain
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
-        '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
         Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
@@ -192,26 +328,8 @@ Partial Class frmFujiMain
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Add new"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorDeleteItem.Text = "Delete"
         '
         'ProductBindingNavigatorSaveItem
         '
@@ -228,81 +346,10 @@ Partial Class frmFujiMain
         Me.ProductDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewImageColumn1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewCheckBoxColumn2})
         Me.ProductDataGridView.DataSource = Me.ProductBindingSource
         Me.ProductDataGridView.Location = New System.Drawing.Point(60, 391)
-        Me.ProductDataGridView.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ProductDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.ProductDataGridView.Name = "ProductDataGridView"
         Me.ProductDataGridView.Size = New System.Drawing.Size(941, 235)
         Me.ProductDataGridView.TabIndex = 1
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.Panel1.ForeColor = System.Drawing.SystemColors.Desktop
-        Me.Panel1.Location = New System.Drawing.Point(0, 28)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1067, 40)
-        Me.Panel1.TabIndex = 2
-        '
-        'lblProdImage
-        '
-        lblProdImage.AutoSize = True
-        lblProdImage.Location = New System.Drawing.Point(93, 300)
-        lblProdImage.Name = "lblProdImage"
-        lblProdImage.Size = New System.Drawing.Size(74, 16)
-        lblProdImage.TabIndex = 3
-        lblProdImage.Text = "Add Image"
-        '
-        'pctProdImage
-        '
-        Me.pctProdImage.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ProductBindingSource, "prodImage", True))
-        Me.pctProdImage.Location = New System.Drawing.Point(60, 79)
-        Me.pctProdImage.Name = "pctProdImage"
-        Me.pctProdImage.Size = New System.Drawing.Size(140, 210)
-        Me.pctProdImage.TabIndex = 4
-        Me.pctProdImage.TabStop = False
-        '
-        'lblProdID
-        '
-        lblProdID.AutoSize = True
-        lblProdID.Location = New System.Drawing.Point(232, 79)
-        lblProdID.Name = "lblProdID"
-        lblProdID.Size = New System.Drawing.Size(77, 16)
-        lblProdID.TabIndex = 5
-        lblProdID.Text = "Product ID:"
-        '
-        'txtProdID
-        '
-        Me.txtProdID.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "prodID", True))
-        Me.txtProdID.Location = New System.Drawing.Point(326, 76)
-        Me.txtProdID.Name = "txtProdID"
-        Me.txtProdID.Size = New System.Drawing.Size(150, 23)
-        Me.txtProdID.TabIndex = 6
-        '
-        'lblProdName
-        '
-        lblProdName.AutoSize = True
-        lblProdName.Location = New System.Drawing.Point(232, 117)
-        lblProdName.Name = "lblProdName"
-        lblProdName.Size = New System.Drawing.Size(48, 16)
-        lblProdName.TabIndex = 7
-        lblProdName.Text = "Name:"
-        '
-        'txtProdName
-        '
-        Me.txtProdName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "prodName", True))
-        Me.txtProdName.Location = New System.Drawing.Point(326, 114)
-        Me.txtProdName.Name = "txtProdName"
-        Me.txtProdName.Size = New System.Drawing.Size(150, 23)
-        Me.txtProdName.TabIndex = 8
-        '
-        'ProductBindingSource
-        '
-        Me.ProductBindingSource.DataMember = "Product"
-        Me.ProductBindingSource.DataSource = Me.DbFujiDataSet
-        '
-        'DbFujiDataSet
-        '
-        Me.DbFujiDataSet.DataSetName = "dbFujiDataSet"
-        Me.DbFujiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'DataGridViewTextBoxColumn1
         '
@@ -383,6 +430,43 @@ Partial Class frmFujiMain
         Me.DataGridViewCheckBoxColumn2.HeaderText = "prodDeluxe"
         Me.DataGridViewCheckBoxColumn2.Name = "DataGridViewCheckBoxColumn2"
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.Panel1.ForeColor = System.Drawing.SystemColors.Desktop
+        Me.Panel1.Location = New System.Drawing.Point(0, 28)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1067, 40)
+        Me.Panel1.TabIndex = 2
+        '
+        'pctProdImage
+        '
+        Me.pctProdImage.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
+        Me.pctProdImage.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ProductBindingSource, "prodImage", True))
+        Me.pctProdImage.Image = CType(resources.GetObject("pctProdImage.Image"), System.Drawing.Image)
+        Me.pctProdImage.Location = New System.Drawing.Point(60, 79)
+        Me.pctProdImage.Name = "pctProdImage"
+        Me.pctProdImage.Size = New System.Drawing.Size(140, 210)
+        Me.pctProdImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.pctProdImage.TabIndex = 4
+        Me.pctProdImage.TabStop = False
+        '
+        'txtProdID
+        '
+        Me.txtProdID.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "prodID", True))
+        Me.txtProdID.Location = New System.Drawing.Point(326, 76)
+        Me.txtProdID.Name = "txtProdID"
+        Me.txtProdID.Size = New System.Drawing.Size(150, 23)
+        Me.txtProdID.TabIndex = 6
+        '
+        'txtProdName
+        '
+        Me.txtProdName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "prodName", True))
+        Me.txtProdName.Location = New System.Drawing.Point(326, 114)
+        Me.txtProdName.Name = "txtProdName"
+        Me.txtProdName.Size = New System.Drawing.Size(150, 23)
+        Me.txtProdName.TabIndex = 8
+        '
         'ProductTableAdapter
         '
         Me.ProductTableAdapter.ClearBeforeFill = True
@@ -393,15 +477,6 @@ Partial Class frmFujiMain
         Me.TableAdapterManager.ProductTableAdapter = Me.ProductTableAdapter
         Me.TableAdapterManager.UpdateOrder = PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'lblProdPrice
-        '
-        lblProdPrice.AutoSize = True
-        lblProdPrice.Location = New System.Drawing.Point(232, 155)
-        lblProdPrice.Name = "lblProdPrice"
-        lblProdPrice.Size = New System.Drawing.Size(43, 16)
-        lblProdPrice.TabIndex = 9
-        lblProdPrice.Text = "Price:"
-        '
         'txtProdPrice
         '
         Me.txtProdPrice.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "prodPrice", True))
@@ -410,15 +485,6 @@ Partial Class frmFujiMain
         Me.txtProdPrice.Size = New System.Drawing.Size(150, 23)
         Me.txtProdPrice.TabIndex = 10
         '
-        'lblProdAuthor
-        '
-        lblProdAuthor.AutoSize = True
-        lblProdAuthor.Location = New System.Drawing.Point(232, 193)
-        lblProdAuthor.Name = "lblProdAuthor"
-        lblProdAuthor.Size = New System.Drawing.Size(55, 16)
-        lblProdAuthor.TabIndex = 11
-        lblProdAuthor.Text = "Author:"
-        '
         'txtProdAuthor
         '
         Me.txtProdAuthor.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "prodAuthor", True))
@@ -426,15 +492,6 @@ Partial Class frmFujiMain
         Me.txtProdAuthor.Name = "txtProdAuthor"
         Me.txtProdAuthor.Size = New System.Drawing.Size(150, 23)
         Me.txtProdAuthor.TabIndex = 12
-        '
-        'lblProdSerial
-        '
-        lblProdSerial.AutoSize = True
-        lblProdSerial.Location = New System.Drawing.Point(232, 231)
-        lblProdSerial.Name = "lblProdSerial"
-        lblProdSerial.Size = New System.Drawing.Size(87, 16)
-        lblProdSerial.TabIndex = 13
-        lblProdSerial.Text = "Serialization:"
         '
         'cbxProdSerial
         '
@@ -445,15 +502,6 @@ Partial Class frmFujiMain
         Me.cbxProdSerial.Size = New System.Drawing.Size(150, 24)
         Me.cbxProdSerial.TabIndex = 14
         '
-        'lblProdDemograph
-        '
-        lblProdDemograph.AutoSize = True
-        lblProdDemograph.Location = New System.Drawing.Point(232, 269)
-        lblProdDemograph.Name = "lblProdDemograph"
-        lblProdDemograph.Size = New System.Drawing.Size(94, 16)
-        lblProdDemograph.TabIndex = 15
-        lblProdDemograph.Text = "Demographic:"
-        '
         'cbxProdDemograph
         '
         Me.cbxProdDemograph.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "prodDemograph", True))
@@ -463,15 +511,6 @@ Partial Class frmFujiMain
         Me.cbxProdDemograph.Size = New System.Drawing.Size(150, 24)
         Me.cbxProdDemograph.TabIndex = 16
         '
-        'lblProdVolume
-        '
-        lblProdVolume.AutoSize = True
-        lblProdVolume.Location = New System.Drawing.Point(501, 79)
-        lblProdVolume.Name = "lblProdVolume"
-        lblProdVolume.Size = New System.Drawing.Size(58, 16)
-        lblProdVolume.TabIndex = 17
-        lblProdVolume.Text = "Volume:"
-        '
         'nudProdVolume
         '
         Me.nudProdVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProductBindingSource, "prodVolume", True))
@@ -479,15 +518,6 @@ Partial Class frmFujiMain
         Me.nudProdVolume.Name = "nudProdVolume"
         Me.nudProdVolume.Size = New System.Drawing.Size(150, 23)
         Me.nudProdVolume.TabIndex = 18
-        '
-        'lblProdChapter
-        '
-        lblProdChapter.AutoSize = True
-        lblProdChapter.Location = New System.Drawing.Point(501, 117)
-        lblProdChapter.Name = "lblProdChapter"
-        lblProdChapter.Size = New System.Drawing.Size(62, 16)
-        lblProdChapter.TabIndex = 19
-        lblProdChapter.Text = "Chapter:"
         '
         'nudProdChapter
         '
@@ -497,15 +527,6 @@ Partial Class frmFujiMain
         Me.nudProdChapter.Size = New System.Drawing.Size(150, 23)
         Me.nudProdChapter.TabIndex = 20
         '
-        'lblProdStatus
-        '
-        lblProdStatus.AutoSize = True
-        lblProdStatus.Location = New System.Drawing.Point(501, 155)
-        lblProdStatus.Name = "lblProdStatus"
-        lblProdStatus.Size = New System.Drawing.Size(52, 16)
-        lblProdStatus.TabIndex = 21
-        lblProdStatus.Text = "Status:"
-        '
         'cbxProdStatus
         '
         Me.cbxProdStatus.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "prodStatus", True))
@@ -514,15 +535,6 @@ Partial Class frmFujiMain
         Me.cbxProdStatus.Name = "cbxProdStatus"
         Me.cbxProdStatus.Size = New System.Drawing.Size(150, 24)
         Me.cbxProdStatus.TabIndex = 22
-        '
-        'lblProdPublish
-        '
-        lblProdPublish.AutoSize = True
-        lblProdPublish.Location = New System.Drawing.Point(501, 193)
-        lblProdPublish.Name = "lblProdPublish"
-        lblProdPublish.Size = New System.Drawing.Size(73, 16)
-        lblProdPublish.TabIndex = 23
-        lblProdPublish.Text = "Published:"
         '
         'ProdPublishDateTimePicker
         '
@@ -552,28 +564,21 @@ Partial Class frmFujiMain
         Me.chkProdDeluxe.Text = "Deluxe Edition"
         Me.chkProdDeluxe.UseVisualStyleBackColor = True
         '
-        'lblProdGenre
-        '
-        lblProdGenre.AutoSize = True
-        lblProdGenre.Location = New System.Drawing.Point(501, 269)
-        lblProdGenre.Name = "lblProdGenre"
-        lblProdGenre.Size = New System.Drawing.Size(51, 16)
-        lblProdGenre.TabIndex = 28
-        lblProdGenre.Text = "Genre:"
-        '
         'chklstProdGenre
         '
+        Me.chklstProdGenre.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.chklstProdGenre.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ProductBindingSource, "prodGenre", True))
         Me.chklstProdGenre.FormattingEnabled = True
         Me.chklstProdGenre.Location = New System.Drawing.Point(580, 269)
         Me.chklstProdGenre.Name = "chklstProdGenre"
-        Me.chklstProdGenre.Size = New System.Drawing.Size(150, 40)
+        Me.chklstProdGenre.Size = New System.Drawing.Size(150, 36)
         Me.chklstProdGenre.TabIndex = 29
         '
         'btnBack
         '
         Me.btnBack.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBack.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.btnBack.Location = New System.Drawing.Point(60, 338)
         Me.btnBack.Name = "btnBack"
@@ -586,6 +591,7 @@ Partial Class frmFujiMain
         '
         Me.btnNext.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNext.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNext.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.btnNext.Location = New System.Drawing.Point(181, 338)
         Me.btnNext.Name = "btnNext"
@@ -598,6 +604,7 @@ Partial Class frmFujiMain
         '
         Me.btnAdd.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAdd.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.btnAdd.Location = New System.Drawing.Point(501, 338)
         Me.btnAdd.Name = "btnAdd"
@@ -610,6 +617,7 @@ Partial Class frmFujiMain
         '
         Me.btnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.btnSave.Location = New System.Drawing.Point(623, 338)
         Me.btnSave.Name = "btnSave"
@@ -622,6 +630,7 @@ Partial Class frmFujiMain
         '
         Me.btnDelete.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
         Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDelete.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.btnDelete.Location = New System.Drawing.Point(745, 338)
         Me.btnDelete.Name = "btnDelete"
@@ -670,16 +679,17 @@ Partial Class frmFujiMain
         Me.Controls.Add(Me.ProductDataGridView)
         Me.Controls.Add(Me.ProductBindingNavigator)
         Me.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmFujiMain"
         Me.Text = "Fuji"
         CType(Me.ProductBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ProductBindingNavigator.ResumeLayout(False)
         Me.ProductBindingNavigator.PerformLayout()
-        CType(Me.ProductDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pctProdImage, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbFujiDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProductDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctProdImage, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudProdVolume, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudProdChapter, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
