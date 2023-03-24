@@ -32,14 +32,16 @@ Partial Class frmFujiMain
         Dim lblProdVolume As System.Windows.Forms.Label
         Dim lblProdStatus As System.Windows.Forms.Label
         Dim lblProdPublish As System.Windows.Forms.Label
-        Dim lblProdGenre As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFujiMain))
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim lblProdChapter As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFujiMain))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim lblProdGenre As System.Windows.Forms.Label
         Me.ProductBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbFujiDataSet = New PE3_Aiden_Castillo.dbFujiDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -64,22 +66,7 @@ Partial Class frmFujiMain
         Me.dtpProdPublish = New System.Windows.Forms.DateTimePicker()
         Me.chkProdInStock = New System.Windows.Forms.CheckBox()
         Me.chkProdDeluxe = New System.Windows.Forms.CheckBox()
-        Me.chklstProdGenre = New System.Windows.Forms.CheckedListBox()
         Me.dgvProduct = New System.Windows.Forms.DataGridView()
-        Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.btnSearch = New System.Windows.Forms.Button()
-        Me.btnClose = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.btnNext = New System.Windows.Forms.Button()
-        Me.btnBack = New System.Windows.Forms.Button()
-        Me.pctProdImage = New System.Windows.Forms.PictureBox()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.nudProdChapter = New System.Windows.Forms.NumericUpDown()
-        Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbFujiDataSet = New PE3_Aiden_Castillo.dbFujiDataSet()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
@@ -93,8 +80,21 @@ Partial Class frmFujiMain
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DataGridViewCheckBoxColumn2 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.btnNext = New System.Windows.Forms.Button()
+        Me.btnBack = New System.Windows.Forms.Button()
+        Me.pctProdImage = New System.Windows.Forms.PictureBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.nudProdChapter = New System.Windows.Forms.NumericUpDown()
         Me.ProductTableAdapter = New PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.ProductTableAdapter()
         Me.TableAdapterManager = New PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.TableAdapterManager()
+        Me.cbxProdGenre = New System.Windows.Forms.ComboBox()
         lblProdImage = New System.Windows.Forms.Label()
         lblProdID = New System.Windows.Forms.Label()
         lblProdName = New System.Windows.Forms.Label()
@@ -104,18 +104,18 @@ Partial Class frmFujiMain
         lblProdVolume = New System.Windows.Forms.Label()
         lblProdStatus = New System.Windows.Forms.Label()
         lblProdPublish = New System.Windows.Forms.Label()
-        lblProdGenre = New System.Windows.Forms.Label()
         lblProdChapter = New System.Windows.Forms.Label()
+        lblProdGenre = New System.Windows.Forms.Label()
         CType(Me.ProductBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProductBindingNavigator.SuspendLayout()
+        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbFujiDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudProdVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvProduct, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pctProdImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudProdChapter, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DbFujiDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblProdImage
@@ -199,14 +199,14 @@ Partial Class frmFujiMain
         lblProdPublish.TabIndex = 23
         lblProdPublish.Text = "Published:"
         '
-        'lblProdGenre
+        'lblProdChapter
         '
-        lblProdGenre.AutoSize = True
-        lblProdGenre.Location = New System.Drawing.Point(598, 231)
-        lblProdGenre.Name = "lblProdGenre"
-        lblProdGenre.Size = New System.Drawing.Size(51, 16)
-        lblProdGenre.TabIndex = 28
-        lblProdGenre.Text = "Genre:"
+        lblProdChapter.AutoSize = True
+        lblProdChapter.Location = New System.Drawing.Point(598, 79)
+        lblProdChapter.Name = "lblProdChapter"
+        lblProdChapter.Size = New System.Drawing.Size(62, 16)
+        lblProdChapter.TabIndex = 36
+        lblProdChapter.Text = "Chapter:"
         '
         'ProductBindingNavigator
         '
@@ -234,6 +234,16 @@ Partial Class frmFujiMain
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'ProductBindingSource
+        '
+        Me.ProductBindingSource.DataMember = "Product"
+        Me.ProductBindingSource.DataSource = Me.DbFujiDataSet
+        '
+        'DbFujiDataSet
+        '
+        Me.DbFujiDataSet.DataSetName = "dbFujiDataSet"
+        Me.DbFujiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -433,7 +443,7 @@ Partial Class frmFujiMain
         'chkProdInStock
         '
         Me.chkProdInStock.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ProductBindingSource, "prodInStock", True))
-        Me.chkProdInStock.Location = New System.Drawing.Point(796, 189)
+        Me.chkProdInStock.Location = New System.Drawing.Point(799, 227)
         Me.chkProdInStock.Name = "chkProdInStock"
         Me.chkProdInStock.Size = New System.Drawing.Size(81, 24)
         Me.chkProdInStock.TabIndex = 10
@@ -443,59 +453,130 @@ Partial Class frmFujiMain
         'chkProdDeluxe
         '
         Me.chkProdDeluxe.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.ProductBindingSource, "prodDeluxe", True))
-        Me.chkProdDeluxe.Location = New System.Drawing.Point(677, 189)
+        Me.chkProdDeluxe.Location = New System.Drawing.Point(680, 227)
         Me.chkProdDeluxe.Name = "chkProdDeluxe"
         Me.chkProdDeluxe.Size = New System.Drawing.Size(118, 24)
         Me.chkProdDeluxe.TabIndex = 9
         Me.chkProdDeluxe.Text = "Deluxe Edition"
         Me.chkProdDeluxe.UseVisualStyleBackColor = True
         '
-        'chklstProdGenre
-        '
-        Me.chklstProdGenre.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.chklstProdGenre.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ProductBindingSource, "prodGenre", True))
-        Me.chklstProdGenre.FormattingEnabled = True
-        Me.chklstProdGenre.Items.AddRange(New Object() {"Action", "Adventure", "Adult", "Comedy", "Cyberpunk", "Drama", "Fantasy", "Historical", "Horror", "Martial Arts", "Mecha", "Psychological", "Romance", "Samurai", "Slice of Life", "Supernatural", "Thriller"})
-        Me.chklstProdGenre.Location = New System.Drawing.Point(677, 228)
-        Me.chklstProdGenre.Name = "chklstProdGenre"
-        Me.chklstProdGenre.Size = New System.Drawing.Size(200, 72)
-        Me.chklstProdGenre.TabIndex = 11
-        '
         'dgvProduct
         '
         Me.dgvProduct.AllowUserToAddRows = False
         Me.dgvProduct.AllowUserToDeleteRows = False
         Me.dgvProduct.AllowUserToResizeRows = False
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.dgvProduct.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.dgvProduct.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvProduct.AutoGenerateColumns = False
         Me.dgvProduct.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgvProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvProduct.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvProduct.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProduct.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewImageColumn1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewCheckBoxColumn2})
         Me.dgvProduct.DataSource = Me.ProductBindingSource
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle12.NullValue = Nothing
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvProduct.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.NullValue = Nothing
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvProduct.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvProduct.Location = New System.Drawing.Point(38, 400)
         Me.dgvProduct.Name = "dgvProduct"
         Me.dgvProduct.Size = New System.Drawing.Size(842, 220)
         Me.dgvProduct.TabIndex = 19
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "prodID"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "prodID"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "prodName"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "prodName"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'DataGridViewImageColumn1
+        '
+        Me.DataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.DataGridViewImageColumn1.DataPropertyName = "prodImage"
+        Me.DataGridViewImageColumn1.HeaderText = "prodImage"
+        Me.DataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
+        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
+        Me.DataGridViewImageColumn1.Width = 80
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "prodAuthor"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "prodAuthor"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "prodSerial"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "prodSerial"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "prodStatus"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "prodStatus"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "prodVolume"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "prodVolume"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "prodChapter"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "prodChapter"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "prodPublish"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "prodPublish"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "prodGenre"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "prodGenre"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "prodDemograph"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "prodDemograph"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        '
+        'DataGridViewCheckBoxColumn1
+        '
+        Me.DataGridViewCheckBoxColumn1.DataPropertyName = "prodInStock"
+        Me.DataGridViewCheckBoxColumn1.HeaderText = "prodInStock"
+        Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
+        '
+        'DataGridViewCheckBoxColumn2
+        '
+        Me.DataGridViewCheckBoxColumn2.DataPropertyName = "prodDeluxe"
+        Me.DataGridViewCheckBoxColumn2.HeaderText = "prodDeluxe"
+        Me.DataGridViewCheckBoxColumn2.Name = "DataGridViewCheckBoxColumn2"
         '
         'txtSearch
         '
@@ -639,15 +720,6 @@ Partial Class frmFujiMain
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'lblProdChapter
-        '
-        lblProdChapter.AutoSize = True
-        lblProdChapter.Location = New System.Drawing.Point(598, 79)
-        lblProdChapter.Name = "lblProdChapter"
-        lblProdChapter.Size = New System.Drawing.Size(62, 16)
-        lblProdChapter.TabIndex = 36
-        lblProdChapter.Text = "Chapter:"
-        '
         'nudProdChapter
         '
         Me.nudProdChapter.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProductBindingSource, "prodChapter", True))
@@ -656,98 +728,6 @@ Partial Class frmFujiMain
         Me.nudProdChapter.Name = "nudProdChapter"
         Me.nudProdChapter.Size = New System.Drawing.Size(200, 23)
         Me.nudProdChapter.TabIndex = 6
-        '
-        'ProductBindingSource
-        '
-        Me.ProductBindingSource.DataMember = "Product"
-        Me.ProductBindingSource.DataSource = Me.DbFujiDataSet
-        '
-        'DbFujiDataSet
-        '
-        Me.DbFujiDataSet.DataSetName = "dbFujiDataSet"
-        Me.DbFujiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "prodID"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "prodID"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "prodName"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "prodName"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        '
-        'DataGridViewImageColumn1
-        '
-        Me.DataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewImageColumn1.DataPropertyName = "prodImage"
-        Me.DataGridViewImageColumn1.HeaderText = "prodImage"
-        Me.DataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom
-        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
-        Me.DataGridViewImageColumn1.Width = 80
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "prodAuthor"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "prodAuthor"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "prodSerial"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "prodSerial"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "prodStatus"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "prodStatus"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "prodVolume"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "prodVolume"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "prodChapter"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "prodChapter"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "prodPublish"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "prodPublish"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "prodGenre"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "prodGenre"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "prodDemograph"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "prodDemograph"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        '
-        'DataGridViewCheckBoxColumn1
-        '
-        Me.DataGridViewCheckBoxColumn1.DataPropertyName = "prodInStock"
-        Me.DataGridViewCheckBoxColumn1.HeaderText = "prodInStock"
-        Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
-        '
-        'DataGridViewCheckBoxColumn2
-        '
-        Me.DataGridViewCheckBoxColumn2.DataPropertyName = "prodDeluxe"
-        Me.DataGridViewCheckBoxColumn2.HeaderText = "prodDeluxe"
-        Me.DataGridViewCheckBoxColumn2.Name = "DataGridViewCheckBoxColumn2"
         '
         'ProductTableAdapter
         '
@@ -759,6 +739,25 @@ Partial Class frmFujiMain
         Me.TableAdapterManager.ProductTableAdapter = Me.ProductTableAdapter
         Me.TableAdapterManager.UpdateOrder = PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'lblProdGenre
+        '
+        lblProdGenre.AutoSize = True
+        lblProdGenre.Location = New System.Drawing.Point(598, 193)
+        lblProdGenre.Name = "lblProdGenre"
+        lblProdGenre.Size = New System.Drawing.Size(51, 16)
+        lblProdGenre.TabIndex = 36
+        lblProdGenre.Text = "Genre:"
+        '
+        'cbxProdGenre
+        '
+        Me.cbxProdGenre.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "prodGenre", True))
+        Me.cbxProdGenre.FormattingEnabled = True
+        Me.cbxProdGenre.Items.AddRange(New Object() {"Action", "Adventure", "Adult", "Comedy", "Cyberpunk", "Drama", "Fantasy", "Historical", "Horror", "Martial Arts", "Mecha", "Psychological", "Romance", "Samurai", "Sci-Fi", "Slice of Life", "Supernatural", "Thriller"})
+        Me.cbxProdGenre.Location = New System.Drawing.Point(677, 189)
+        Me.cbxProdGenre.Name = "cbxProdGenre"
+        Me.cbxProdGenre.Size = New System.Drawing.Size(200, 24)
+        Me.cbxProdGenre.TabIndex = 37
+        '
         'frmFujiMain
         '
         Me.AcceptButton = Me.btnSearch
@@ -767,6 +766,8 @@ Partial Class frmFujiMain
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.CancelButton = Me.btnClose
         Me.ClientSize = New System.Drawing.Size(934, 681)
+        Me.Controls.Add(lblProdGenre)
+        Me.Controls.Add(Me.cbxProdGenre)
         Me.Controls.Add(lblProdChapter)
         Me.Controls.Add(Me.nudProdChapter)
         Me.Controls.Add(Me.btnClose)
@@ -778,8 +779,6 @@ Partial Class frmFujiMain
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnBack)
-        Me.Controls.Add(lblProdGenre)
-        Me.Controls.Add(Me.chklstProdGenre)
         Me.Controls.Add(Me.chkProdDeluxe)
         Me.Controls.Add(Me.chkProdInStock)
         Me.Controls.Add(lblProdPublish)
@@ -811,6 +810,8 @@ Partial Class frmFujiMain
         CType(Me.ProductBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ProductBindingNavigator.ResumeLayout(False)
         Me.ProductBindingNavigator.PerformLayout()
+        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbFujiDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -818,8 +819,6 @@ Partial Class frmFujiMain
         CType(Me.dgvProduct, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pctProdImage, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudProdChapter, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbFujiDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -854,7 +853,6 @@ Partial Class frmFujiMain
     Friend WithEvents dtpProdPublish As DateTimePicker
     Friend WithEvents chkProdInStock As CheckBox
     Friend WithEvents chkProdDeluxe As CheckBox
-    Friend WithEvents chklstProdGenre As CheckedListBox
     Friend WithEvents btnBack As Button
     Friend WithEvents btnNext As Button
     Friend WithEvents btnAdd As Button
@@ -882,4 +880,5 @@ Partial Class frmFujiMain
     Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewCheckBoxColumn1 As DataGridViewCheckBoxColumn
     Friend WithEvents DataGridViewCheckBoxColumn2 As DataGridViewCheckBoxColumn
+    Friend WithEvents cbxProdGenre As ComboBox
 End Class

@@ -9,6 +9,7 @@
 Imports System.IO
 Imports System.Data
 Imports System.Data.SqlClient
+Imports System.Text
 Public Class frmFujiMain
 
     Private Sub ProductBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles ProductBindingNavigatorSaveItem.Click
@@ -63,7 +64,7 @@ Public Class frmFujiMain
     'Saves new item or update previous ones
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         If String.IsNullOrEmpty(txtProdName.Text) OrElse String.IsNullOrEmpty(txtProdAuthor.Text) OrElse String.IsNullOrEmpty(cbxProdSerial.Text) OrElse String.IsNullOrEmpty(cbxProdStatus.Text) OrElse
-            String.IsNullOrEmpty(nudProdVolume.Text) OrElse String.IsNullOrEmpty(nudProdChapter.Text) OrElse dtpProdPublish.Value = Nothing OrElse String.IsNullOrEmpty(chklstProdGenre.Text) OrElse
+            String.IsNullOrEmpty(nudProdVolume.Text) OrElse String.IsNullOrEmpty(nudProdChapter.Text) OrElse dtpProdPublish.Value = Nothing OrElse String.IsNullOrEmpty(cbxProdGenre.Text) OrElse
             String.IsNullOrEmpty(cbxProdDemograph.Text) Then
             MessageBox.Show("Please enter a value in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
@@ -153,4 +154,5 @@ Public Class frmFujiMain
             MsgBox(ex.Message)
         End Try
     End Sub
+
 End Class
