@@ -309,8 +309,6 @@ Partial Public Class dbFujiDataSet
         
         Private columnprodDeluxe As Global.System.Data.DataColumn
         
-        Private columnprodPrice As Global.System.Data.DataColumn
-        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -451,14 +449,6 @@ Partial Public Class dbFujiDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property prodPriceColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnprodPrice
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -495,9 +485,9 @@ Partial Public Class dbFujiDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddProductRow(ByVal prodName As String, ByVal prodImage() As Byte, ByVal prodAuthor As String, ByVal prodSerial As String, ByVal prodStatus As String, ByVal prodVolume As Integer, ByVal prodChapter As Integer, ByVal prodPublish As Date, ByVal prodGenre As String, ByVal prodDemograph As String, ByVal prodInStock As Boolean, ByVal prodDeluxe As Boolean, ByVal prodPrice As Double) As ProductRow
+        Public Overloads Function AddProductRow(ByVal prodName As String, ByVal prodImage() As Byte, ByVal prodAuthor As String, ByVal prodSerial As String, ByVal prodStatus As String, ByVal prodVolume As Integer, ByVal prodChapter As Integer, ByVal prodPublish As Date, ByVal prodGenre As String, ByVal prodDemograph As String, ByVal prodInStock As Boolean, ByVal prodDeluxe As Boolean) As ProductRow
             Dim rowProductRow As ProductRow = CType(Me.NewRow,ProductRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, prodName, prodImage, prodAuthor, prodSerial, prodStatus, prodVolume, prodChapter, prodPublish, prodGenre, prodDemograph, prodInStock, prodDeluxe, prodPrice}
+            Dim columnValuesArray() As Object = New Object() {Nothing, prodName, prodImage, prodAuthor, prodSerial, prodStatus, prodVolume, prodChapter, prodPublish, prodGenre, prodDemograph, prodInStock, prodDeluxe}
             rowProductRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowProductRow)
             Return rowProductRow
@@ -539,7 +529,6 @@ Partial Public Class dbFujiDataSet
             Me.columnprodDemograph = MyBase.Columns("prodDemograph")
             Me.columnprodInStock = MyBase.Columns("prodInStock")
             Me.columnprodDeluxe = MyBase.Columns("prodDeluxe")
-            Me.columnprodPrice = MyBase.Columns("prodPrice")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -571,8 +560,6 @@ Partial Public Class dbFujiDataSet
             MyBase.Columns.Add(Me.columnprodInStock)
             Me.columnprodDeluxe = New Global.System.Data.DataColumn("prodDeluxe", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnprodDeluxe)
-            Me.columnprodPrice = New Global.System.Data.DataColumn("prodPrice", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnprodPrice)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnprodID}, true))
             Me.columnprodID.AutoIncrement = true
             Me.columnprodID.AutoIncrementSeed = 1
@@ -922,21 +909,6 @@ Partial Public Class dbFujiDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property prodPrice() As Double
-            Get
-                Try 
-                    Return CType(Me(Me.tableProduct.prodPriceColumn),Double)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'prodPrice' in table 'Product' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableProduct.prodPriceColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsprodNameNull() As Boolean
             Return Me.IsNull(Me.tableProduct.prodNameColumn)
         End Function
@@ -1077,18 +1049,6 @@ Partial Public Class dbFujiDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetprodDeluxeNull()
             Me(Me.tableProduct.prodDeluxeColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsprodPriceNull() As Boolean
-            Return Me.IsNull(Me.tableProduct.prodPriceColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetprodPriceNull()
-            Me(Me.tableProduct.prodPriceColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1271,25 +1231,23 @@ Namespace dbFujiDataSetTableAdapters
             tableMapping.ColumnMappings.Add("prodDemograph", "prodDemograph")
             tableMapping.ColumnMappings.Add("prodInStock", "prodInStock")
             tableMapping.ColumnMappings.Add("prodDeluxe", "prodDeluxe")
-            tableMapping.ColumnMappings.Add("prodQuantity", "prodPrice")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Product] WHERE (([prodID] = @Original_prodID) AND ((@IsNull_pr"& _ 
-                "odName = 1 AND [prodName] IS NULL) OR ([prodName] = @Original_prodName)) AND ((@"& _ 
-                "IsNull_prodAuthor = 1 AND [prodAuthor] IS NULL) OR ([prodAuthor] = @Original_pro"& _ 
-                "dAuthor)) AND ((@IsNull_prodSerial = 1 AND [prodSerial] IS NULL) OR ([prodSerial"& _ 
-                "] = @Original_prodSerial)) AND ((@IsNull_prodStatus = 1 AND [prodStatus] IS NULL"& _ 
-                ") OR ([prodStatus] = @Original_prodStatus)) AND ((@IsNull_prodVolume = 1 AND [pr"& _ 
-                "odVolume] IS NULL) OR ([prodVolume] = @Original_prodVolume)) AND ((@IsNull_prodC"& _ 
-                "hapter = 1 AND [prodChapter] IS NULL) OR ([prodChapter] = @Original_prodChapter)"& _ 
-                ") AND ((@IsNull_prodPublish = 1 AND [prodPublish] IS NULL) OR ([prodPublish] = @"& _ 
-                "Original_prodPublish)) AND ((@IsNull_prodDemograph = 1 AND [prodDemograph] IS NU"& _ 
-                "LL) OR ([prodDemograph] = @Original_prodDemograph)) AND ((@IsNull_prodInStock = "& _ 
-                "1 AND [prodInStock] IS NULL) OR ([prodInStock] = @Original_prodInStock)) AND ((@"& _ 
-                "IsNull_prodDeluxe = 1 AND [prodDeluxe] IS NULL) OR ([prodDeluxe] = @Original_pro"& _ 
-                "dDeluxe)) AND ((@IsNull_prodQuantity = 1 AND [prodQuantity] IS NULL) OR ([prodQu"& _ 
-                "antity] = @Original_prodQuantity)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Product] WHERE (([prodID] = @Original_prodID) AND ((@IsNull_prodName"& _ 
+                " = 1 AND [prodName] IS NULL) OR ([prodName] = @Original_prodName)) AND ((@IsNull"& _ 
+                "_prodAuthor = 1 AND [prodAuthor] IS NULL) OR ([prodAuthor] = @Original_prodAutho"& _ 
+                "r)) AND ((@IsNull_prodSerial = 1 AND [prodSerial] IS NULL) OR ([prodSerial] = @O"& _ 
+                "riginal_prodSerial)) AND ((@IsNull_prodStatus = 1 AND [prodStatus] IS NULL) OR ("& _ 
+                "[prodStatus] = @Original_prodStatus)) AND ((@IsNull_prodVolume = 1 AND [prodVolu"& _ 
+                "me] IS NULL) OR ([prodVolume] = @Original_prodVolume)) AND ((@IsNull_prodChapter"& _ 
+                " = 1 AND [prodChapter] IS NULL) OR ([prodChapter] = @Original_prodChapter)) AND "& _ 
+                "((@IsNull_prodPublish = 1 AND [prodPublish] IS NULL) OR ([prodPublish] = @Origin"& _ 
+                "al_prodPublish)) AND ((@IsNull_prodDemograph = 1 AND [prodDemograph] IS NULL) OR"& _ 
+                " ([prodDemograph] = @Original_prodDemograph)) AND ((@IsNull_prodInStock = 1 AND "& _ 
+                "[prodInStock] IS NULL) OR ([prodInStock] = @Original_prodInStock)) AND ((@IsNull"& _ 
+                "_prodDeluxe = 1 AND [prodDeluxe] IS NULL) OR ([prodDeluxe] = @Original_prodDelux"& _ 
+                "e)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_prodID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_prodName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -1312,18 +1270,16 @@ Namespace dbFujiDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_prodInStock", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodInStock", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_prodDeluxe", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodDeluxe", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_prodDeluxe", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodDeluxe", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_prodQuantity", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodQuantity", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_prodQuantity", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodQuantity", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Product] ([prodName], [prodImage], [prodAuthor], [prodSerial],"& _ 
-                " [prodStatus], [prodVolume], [prodChapter], [prodPublish], [prodGenre], [prodDem"& _ 
-                "ograph], [prodInStock], [prodDeluxe], [prodQuantity]) VALUES (@prodName, @prodIm"& _ 
-                "age, @prodAuthor, @prodSerial, @prodStatus, @prodVolume, @prodChapter, @prodPubl"& _ 
-                "ish, @prodGenre, @prodDemograph, @prodInStock, @prodDeluxe, @prodQuantity);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SEL"& _ 
-                "ECT prodID, prodName, prodImage, prodAuthor, prodSerial, prodStatus, prodVolume,"& _ 
-                " prodChapter, prodPublish, prodGenre, prodDemograph, prodInStock, prodDeluxe, pr"& _ 
-                "odQuantity FROM Product WHERE (prodID = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Product] ([prodName], [prodImage], [prodAuthor], [prodSerial], [prod"& _ 
+                "Status], [prodVolume], [prodChapter], [prodPublish], [prodGenre], [prodDemograph"& _ 
+                "], [prodInStock], [prodDeluxe]) VALUES (@prodName, @prodImage, @prodAuthor, @pro"& _ 
+                "dSerial, @prodStatus, @prodVolume, @prodChapter, @prodPublish, @prodGenre, @prod"& _ 
+                "Demograph, @prodInStock, @prodDeluxe);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT prodID, prodName, prodImage, prod"& _ 
+                "Author, prodSerial, prodStatus, prodVolume, prodChapter, prodPublish, prodGenre,"& _ 
+                " prodDemograph, prodInStock, prodDeluxe FROM Product WHERE (prodID = SCOPE_IDENT"& _ 
+                "ITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@prodName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@prodImage", Global.System.Data.SqlDbType.Image, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodImage", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1337,31 +1293,28 @@ Namespace dbFujiDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@prodDemograph", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodDemograph", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@prodInStock", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodInStock", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@prodDeluxe", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodDeluxe", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@prodQuantity", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodQuantity", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Product] SET [prodName] = @prodName, [prodImage] = @prodImage, [pro"& _ 
-                "dAuthor] = @prodAuthor, [prodSerial] = @prodSerial, [prodStatus] = @prodStatus, "& _ 
-                "[prodVolume] = @prodVolume, [prodChapter] = @prodChapter, [prodPublish] = @prodP"& _ 
-                "ublish, [prodGenre] = @prodGenre, [prodDemograph] = @prodDemograph, [prodInStock"& _ 
-                "] = @prodInStock, [prodDeluxe] = @prodDeluxe, [prodQuantity] = @prodQuantity WHE"& _ 
-                "RE (([prodID] = @Original_prodID) AND ((@IsNull_prodName = 1 AND [prodName] IS N"& _ 
-                "ULL) OR ([prodName] = @Original_prodName)) AND ((@IsNull_prodAuthor = 1 AND [pro"& _ 
-                "dAuthor] IS NULL) OR ([prodAuthor] = @Original_prodAuthor)) AND ((@IsNull_prodSe"& _ 
-                "rial = 1 AND [prodSerial] IS NULL) OR ([prodSerial] = @Original_prodSerial)) AND"& _ 
-                " ((@IsNull_prodStatus = 1 AND [prodStatus] IS NULL) OR ([prodStatus] = @Original"& _ 
-                "_prodStatus)) AND ((@IsNull_prodVolume = 1 AND [prodVolume] IS NULL) OR ([prodVo"& _ 
-                "lume] = @Original_prodVolume)) AND ((@IsNull_prodChapter = 1 AND [prodChapter] I"& _ 
-                "S NULL) OR ([prodChapter] = @Original_prodChapter)) AND ((@IsNull_prodPublish = "& _ 
-                "1 AND [prodPublish] IS NULL) OR ([prodPublish] = @Original_prodPublish)) AND ((@"& _ 
-                "IsNull_prodDemograph = 1 AND [prodDemograph] IS NULL) OR ([prodDemograph] = @Ori"& _ 
-                "ginal_prodDemograph)) AND ((@IsNull_prodInStock = 1 AND [prodInStock] IS NULL) O"& _ 
-                "R ([prodInStock] = @Original_prodInStock)) AND ((@IsNull_prodDeluxe = 1 AND [pro"& _ 
-                "dDeluxe] IS NULL) OR ([prodDeluxe] = @Original_prodDeluxe)) AND ((@IsNull_prodQu"& _ 
-                "antity = 1 AND [prodQuantity] IS NULL) OR ([prodQuantity] = @Original_prodQuanti"& _ 
-                "ty)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT prodID, prodName, prodImage, prodAuthor, prodSerial, prodStatus, "& _ 
-                "prodVolume, prodChapter, prodPublish, prodGenre, prodDemograph, prodInStock, pro"& _ 
-                "dDeluxe, prodQuantity FROM Product WHERE (prodID = @prodID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Product] SET [prodName] = @prodName, [prodImage] = @prodImage, [prodAutho"& _ 
+                "r] = @prodAuthor, [prodSerial] = @prodSerial, [prodStatus] = @prodStatus, [prodV"& _ 
+                "olume] = @prodVolume, [prodChapter] = @prodChapter, [prodPublish] = @prodPublish"& _ 
+                ", [prodGenre] = @prodGenre, [prodDemograph] = @prodDemograph, [prodInStock] = @p"& _ 
+                "rodInStock, [prodDeluxe] = @prodDeluxe WHERE (([prodID] = @Original_prodID) AND "& _ 
+                "((@IsNull_prodName = 1 AND [prodName] IS NULL) OR ([prodName] = @Original_prodNa"& _ 
+                "me)) AND ((@IsNull_prodAuthor = 1 AND [prodAuthor] IS NULL) OR ([prodAuthor] = @"& _ 
+                "Original_prodAuthor)) AND ((@IsNull_prodSerial = 1 AND [prodSerial] IS NULL) OR "& _ 
+                "([prodSerial] = @Original_prodSerial)) AND ((@IsNull_prodStatus = 1 AND [prodSta"& _ 
+                "tus] IS NULL) OR ([prodStatus] = @Original_prodStatus)) AND ((@IsNull_prodVolume"& _ 
+                " = 1 AND [prodVolume] IS NULL) OR ([prodVolume] = @Original_prodVolume)) AND ((@"& _ 
+                "IsNull_prodChapter = 1 AND [prodChapter] IS NULL) OR ([prodChapter] = @Original_"& _ 
+                "prodChapter)) AND ((@IsNull_prodPublish = 1 AND [prodPublish] IS NULL) OR ([prod"& _ 
+                "Publish] = @Original_prodPublish)) AND ((@IsNull_prodDemograph = 1 AND [prodDemo"& _ 
+                "graph] IS NULL) OR ([prodDemograph] = @Original_prodDemograph)) AND ((@IsNull_pr"& _ 
+                "odInStock = 1 AND [prodInStock] IS NULL) OR ([prodInStock] = @Original_prodInSto"& _ 
+                "ck)) AND ((@IsNull_prodDeluxe = 1 AND [prodDeluxe] IS NULL) OR ([prodDeluxe] = @"& _ 
+                "Original_prodDeluxe)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT prodID, prodName, prodImage, prodAuthor, prodSer"& _ 
+                "ial, prodStatus, prodVolume, prodChapter, prodPublish, prodGenre, prodDemograph,"& _ 
+                " prodInStock, prodDeluxe FROM Product WHERE (prodID = @prodID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@prodName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@prodImage", Global.System.Data.SqlDbType.Image, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodImage", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -1375,7 +1328,6 @@ Namespace dbFujiDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@prodDemograph", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodDemograph", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@prodInStock", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodInStock", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@prodDeluxe", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodDeluxe", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@prodQuantity", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodQuantity", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_prodID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_prodName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_prodName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -1397,8 +1349,6 @@ Namespace dbFujiDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_prodInStock", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodInStock", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_prodDeluxe", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodDeluxe", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_prodDeluxe", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodDeluxe", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_prodQuantity", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodQuantity", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_prodQuantity", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "prodQuantity", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@prodID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "prodID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -1416,8 +1366,8 @@ Namespace dbFujiDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT prodID, prodName, prodImage, prodAuthor, prodSerial, prodStatus, prodVolum"& _ 
-                "e, prodChapter, prodPublish, prodGenre, prodDemograph, prodInStock, prodDeluxe, "& _ 
-                "prodQuantity FROM dbo.Product"
+                "e, prodChapter, prodPublish, prodGenre, prodDemograph, prodInStock, prodDeluxe F"& _ 
+                "ROM Product"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1477,7 +1427,7 @@ Namespace dbFujiDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_prodID As Integer, ByVal Original_prodName As String, ByVal Original_prodAuthor As String, ByVal Original_prodSerial As String, ByVal Original_prodStatus As String, ByVal Original_prodVolume As Global.System.Nullable(Of Integer), ByVal Original_prodChapter As Global.System.Nullable(Of Integer), ByVal Original_prodPublish As Global.System.Nullable(Of Date), ByVal Original_prodDemograph As String, ByVal Original_prodInStock As Global.System.Nullable(Of Boolean), ByVal Original_prodDeluxe As Global.System.Nullable(Of Boolean), ByVal Original_prodQuantity As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_prodID As Integer, ByVal Original_prodName As String, ByVal Original_prodAuthor As String, ByVal Original_prodSerial As String, ByVal Original_prodStatus As String, ByVal Original_prodVolume As Global.System.Nullable(Of Integer), ByVal Original_prodChapter As Global.System.Nullable(Of Integer), ByVal Original_prodPublish As Global.System.Nullable(Of Date), ByVal Original_prodDemograph As String, ByVal Original_prodInStock As Global.System.Nullable(Of Boolean), ByVal Original_prodDeluxe As Global.System.Nullable(Of Boolean)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_prodID,Integer)
             If (Original_prodName Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -1549,13 +1499,6 @@ Namespace dbFujiDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             End If
-            If (Original_prodQuantity.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_prodQuantity.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
-            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1575,7 +1518,7 @@ Namespace dbFujiDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal prodName As String, ByVal prodImage() As Byte, ByVal prodAuthor As String, ByVal prodSerial As String, ByVal prodStatus As String, ByVal prodVolume As Global.System.Nullable(Of Integer), ByVal prodChapter As Global.System.Nullable(Of Integer), ByVal prodPublish As Global.System.Nullable(Of Date), ByVal prodGenre As String, ByVal prodDemograph As String, ByVal prodInStock As Global.System.Nullable(Of Boolean), ByVal prodDeluxe As Global.System.Nullable(Of Boolean), ByVal prodQuantity As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Insert(ByVal prodName As String, ByVal prodImage() As Byte, ByVal prodAuthor As String, ByVal prodSerial As String, ByVal prodStatus As String, ByVal prodVolume As Global.System.Nullable(Of Integer), ByVal prodChapter As Global.System.Nullable(Of Integer), ByVal prodPublish As Global.System.Nullable(Of Date), ByVal prodGenre As String, ByVal prodDemograph As String, ByVal prodInStock As Global.System.Nullable(Of Boolean), ByVal prodDeluxe As Global.System.Nullable(Of Boolean)) As Integer
             If (prodName Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -1636,11 +1579,6 @@ Namespace dbFujiDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
-            If (prodQuantity.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(prodQuantity.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1673,7 +1611,6 @@ Namespace dbFujiDataSetTableAdapters
                     ByVal prodDemograph As String,  _
                     ByVal prodInStock As Global.System.Nullable(Of Boolean),  _
                     ByVal prodDeluxe As Global.System.Nullable(Of Boolean),  _
-                    ByVal prodQuantity As Global.System.Nullable(Of Integer),  _
                     ByVal Original_prodID As Integer,  _
                     ByVal Original_prodName As String,  _
                     ByVal Original_prodAuthor As String,  _
@@ -1685,7 +1622,6 @@ Namespace dbFujiDataSetTableAdapters
                     ByVal Original_prodDemograph As String,  _
                     ByVal Original_prodInStock As Global.System.Nullable(Of Boolean),  _
                     ByVal Original_prodDeluxe As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_prodQuantity As Global.System.Nullable(Of Integer),  _
                     ByVal prodID As Integer) As Integer
             If (prodName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
@@ -1747,90 +1683,78 @@ Namespace dbFujiDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
-            If (prodQuantity.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(prodQuantity.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_prodID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_prodID,Integer)
             If (Original_prodName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_prodName,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_prodName,String)
             End If
             If (Original_prodAuthor Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_prodAuthor,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_prodAuthor,String)
             End If
             If (Original_prodSerial Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_prodSerial,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_prodSerial,String)
             End If
             If (Original_prodStatus Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_prodStatus,String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_prodStatus,String)
             End If
             If (Original_prodVolume.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_prodVolume.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_prodVolume.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
             If (Original_prodChapter.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_prodChapter.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_prodChapter.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             End If
             If (Original_prodPublish.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_prodPublish.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_prodPublish.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             End If
             If (Original_prodDemograph Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_prodDemograph,String)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_prodDemograph,String)
             End If
             If (Original_prodInStock.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_prodInStock.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_prodInStock.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             End If
             If (Original_prodDeluxe.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_prodDeluxe.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_prodDeluxe.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
             End If
-            If (Original_prodQuantity.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_prodQuantity.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(36).Value = CType(prodID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(33).Value = CType(prodID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1863,7 +1787,6 @@ Namespace dbFujiDataSetTableAdapters
                     ByVal prodDemograph As String,  _
                     ByVal prodInStock As Global.System.Nullable(Of Boolean),  _
                     ByVal prodDeluxe As Global.System.Nullable(Of Boolean),  _
-                    ByVal prodQuantity As Global.System.Nullable(Of Integer),  _
                     ByVal Original_prodID As Integer,  _
                     ByVal Original_prodName As String,  _
                     ByVal Original_prodAuthor As String,  _
@@ -1874,9 +1797,8 @@ Namespace dbFujiDataSetTableAdapters
                     ByVal Original_prodPublish As Global.System.Nullable(Of Date),  _
                     ByVal Original_prodDemograph As String,  _
                     ByVal Original_prodInStock As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_prodDeluxe As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_prodQuantity As Global.System.Nullable(Of Integer)) As Integer
-            Return Me.Update(prodName, prodImage, prodAuthor, prodSerial, prodStatus, prodVolume, prodChapter, prodPublish, prodGenre, prodDemograph, prodInStock, prodDeluxe, prodQuantity, Original_prodID, Original_prodName, Original_prodAuthor, Original_prodSerial, Original_prodStatus, Original_prodVolume, Original_prodChapter, Original_prodPublish, Original_prodDemograph, Original_prodInStock, Original_prodDeluxe, Original_prodQuantity, Original_prodID)
+                    ByVal Original_prodDeluxe As Global.System.Nullable(Of Boolean)) As Integer
+            Return Me.Update(prodName, prodImage, prodAuthor, prodSerial, prodStatus, prodVolume, prodChapter, prodPublish, prodGenre, prodDemograph, prodInStock, prodDeluxe, Original_prodID, Original_prodName, Original_prodAuthor, Original_prodSerial, Original_prodStatus, Original_prodVolume, Original_prodChapter, Original_prodPublish, Original_prodDemograph, Original_prodInStock, Original_prodDeluxe, Original_prodID)
         End Function
     End Class
     
