@@ -53,6 +53,8 @@ Public Class frmFujiMain
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         BindingNavigatorAddNewItem.PerformClick()
 
+        chkProdDeluxe.Checked = False
+        chkProdInStock.Checked = False
         'Re-bind the data source to refresh the DataGridView
         dgvProduct.DataSource = Nothing 'Clear the current data source
         dgvProduct.DataSource = search1() 'Re-bind the DataGridView to the updated search results
@@ -65,6 +67,18 @@ Public Class frmFujiMain
             String.IsNullOrEmpty(cbxProdDemograph.Text) Then
             MessageBox.Show("Please enter a value in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
+
+            'Try
+            '    Dim con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dbFuji.mdf;Integrated Security=True")
+            '    con.Open()
+            '    Dim que As String = "insert into Product (prodName,prodImage,prodAuthor,prodSerial,prodStatus,prodVolume,prodChapter,prodPublish,prodGenre,prodDemograph,prodInStock,prodDeluxe) 
+            '                        values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13)"
+            '    Dim cmd = New SqlConnection(que, con)
+            '    cmd.parameters.AddValue()
+            'Catch ex As Exception
+
+            'End Try
+
             ProductBindingNavigatorSaveItem.PerformClick()
 
             'Re-bind the data source to refresh the DataGridView
@@ -122,5 +136,21 @@ Public Class frmFujiMain
         Else
             Exit Sub
         End If
+    End Sub
+
+    Private Sub pctProdImage_Click(sender As Object, e As EventArgs) Handles pctProdImage.Click
+        Try
+            With OpenFileDialog1
+                .Filter = ("Image Files| *.png; *.Jpeg; *.jpg")
+                .FilterIndex = 1
+            End With
+
+            OpenFileDialog1.FileName = "" 'clear the file name'
+            If OpenFileDialog1.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                pctProdImage.Image = Image.FromFile(OpenFileDialog1.FileName)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class

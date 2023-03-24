@@ -155,6 +155,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\Icons\icons8-add-new-100.png" />
     <Content Include="dbFuji.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

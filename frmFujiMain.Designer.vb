@@ -35,6 +35,7 @@ Partial Class frmFujiMain
         Dim lblProdPublish As System.Windows.Forms.Label
         Dim lblProdGenre As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFujiMain))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ProductBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -90,6 +91,7 @@ Partial Class frmFujiMain
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         lblProdImage = New System.Windows.Forms.Label()
         lblProdID = New System.Windows.Forms.Label()
         lblProdName = New System.Windows.Forms.Label()
@@ -357,15 +359,17 @@ Partial Class frmFujiMain
         'pctProdImage
         '
         Me.pctProdImage.BackColor = System.Drawing.Color.White
-        Me.pctProdImage.BackgroundImage = CType(resources.GetObject("pctProdImage.BackgroundImage"), System.Drawing.Image)
+        Me.pctProdImage.BackgroundImage = Global.PE3_Aiden_Castillo.My.Resources.Resources.icons8_add_new_100
         Me.pctProdImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.pctProdImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pctProdImage.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ProductBindingSource, "prodImage", True))
         Me.pctProdImage.Location = New System.Drawing.Point(38, 79)
         Me.pctProdImage.Name = "pctProdImage"
         Me.pctProdImage.Size = New System.Drawing.Size(140, 210)
-        Me.pctProdImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.pctProdImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pctProdImage.TabIndex = 4
         Me.pctProdImage.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.pctProdImage, "Add Image")
         '
         'txtProdID
         '
@@ -490,7 +494,7 @@ Partial Class frmFujiMain
         Me.btnBack.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.btnBack.Image = CType(resources.GetObject("btnBack.Image"), System.Drawing.Image)
         Me.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnBack.Location = New System.Drawing.Point(38, 338)
+        Me.btnBack.Location = New System.Drawing.Point(38, 320)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(115, 31)
         Me.btnBack.TabIndex = 12
@@ -506,7 +510,7 @@ Partial Class frmFujiMain
         Me.btnNext.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.btnNext.Image = CType(resources.GetObject("btnNext.Image"), System.Drawing.Image)
         Me.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnNext.Location = New System.Drawing.Point(165, 338)
+        Me.btnNext.Location = New System.Drawing.Point(165, 320)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(115, 31)
         Me.btnNext.TabIndex = 13
@@ -522,7 +526,7 @@ Partial Class frmFujiMain
         Me.btnAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.btnAdd.Image = CType(resources.GetObject("btnAdd.Image"), System.Drawing.Image)
         Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAdd.Location = New System.Drawing.Point(522, 338)
+        Me.btnAdd.Location = New System.Drawing.Point(522, 320)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(115, 31)
         Me.btnAdd.TabIndex = 14
@@ -538,7 +542,7 @@ Partial Class frmFujiMain
         Me.btnUpdate.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
         Me.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnUpdate.Location = New System.Drawing.Point(644, 338)
+        Me.btnUpdate.Location = New System.Drawing.Point(644, 320)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(115, 31)
         Me.btnUpdate.TabIndex = 15
@@ -554,7 +558,7 @@ Partial Class frmFujiMain
         Me.btnDelete.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
         Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnDelete.Location = New System.Drawing.Point(765, 338)
+        Me.btnDelete.Location = New System.Drawing.Point(765, 320)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(115, 31)
         Me.btnDelete.TabIndex = 16
@@ -581,10 +585,18 @@ Partial Class frmFujiMain
         Me.dgvProduct.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgvProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvProduct.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProduct.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewImageColumn1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewCheckBoxColumn2})
         Me.dgvProduct.DataSource = Me.ProductBindingSource
-        Me.dgvProduct.Location = New System.Drawing.Point(38, 420)
+        Me.dgvProduct.Location = New System.Drawing.Point(38, 400)
         Me.dgvProduct.Name = "dgvProduct"
         Me.dgvProduct.Size = New System.Drawing.Size(842, 220)
         Me.dgvProduct.TabIndex = 18
@@ -676,7 +688,7 @@ Partial Class frmFujiMain
         Me.btnSearch.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.btnSearch.Image = CType(resources.GetObject("btnSearch.Image"), System.Drawing.Image)
         Me.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSearch.Location = New System.Drawing.Point(522, 375)
+        Me.btnSearch.Location = New System.Drawing.Point(522, 357)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(115, 31)
         Me.btnSearch.TabIndex = 35
@@ -687,7 +699,7 @@ Partial Class frmFujiMain
         'txtSearch
         '
         Me.txtSearch.Font = New System.Drawing.Font("Inter", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.Location = New System.Drawing.Point(643, 377)
+        Me.txtSearch.Location = New System.Drawing.Point(643, 359)
         Me.txtSearch.MaxLength = 100
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(237, 27)
@@ -703,13 +715,17 @@ Partial Class frmFujiMain
         Me.btnClose.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
         Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClose.Location = New System.Drawing.Point(402, 657)
+        Me.btnClose.Location = New System.Drawing.Point(408, 630)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(115, 31)
         Me.btnClose.TabIndex = 36
         Me.btnClose.Text = "Close"
         Me.ToolTip1.SetToolTip(Me.btnClose, "Terminates the application")
         Me.btnClose.UseVisualStyleBackColor = False
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'frmFujiMain
         '
@@ -718,7 +734,7 @@ Partial Class frmFujiMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.CancelButton = Me.btnClose
-        Me.ClientSize = New System.Drawing.Size(914, 700)
+        Me.ClientSize = New System.Drawing.Size(914, 676)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.btnSearch)
@@ -831,4 +847,5 @@ Partial Class frmFujiMain
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents btnClose As Button
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class
