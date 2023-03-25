@@ -40,6 +40,21 @@ Public Class frmFujiMain
 
     End Sub
 
+    Public Sub BindData()
+        Dim query As String = "SELECT * FROM Product"
+        Using con As SqlConnection = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dbFuji.mdf;Integrated Security=True")
+            Using cmd As SqlCommand = New SqlCommand(query, con)
+                Using da As New SqlDataAdapter()
+                    da.SelectCommand = cmd
+                    Using dt As New DataTable()
+                        da.Fill(dt)
+                        dgvProduct.DataSource = dt
+                    End Using
+                End Using
+            End Using
+        End Using
+    End Sub
+
     'Goes to the previous item
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         BindingNavigatorMovePreviousItem.PerformClick()
@@ -54,8 +69,10 @@ Public Class frmFujiMain
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         BindingNavigatorAddNewItem.PerformClick()
 
+        'Makes the checkboxes unchecked for new item when the add item button is clicked
         chkProdDeluxe.Checked = False
         chkProdInStock.Checked = False
+
         'Re-bind the data source to refresh the DataGridView
         dgvProduct.DataSource = Nothing 'Clear the current data source
         dgvProduct.DataSource = search1() 'Re-bind the DataGridView to the updated search results
@@ -68,7 +85,8 @@ Public Class frmFujiMain
             String.IsNullOrEmpty(cbxProdDemograph.Text) Then
             MessageBox.Show("Please enter a value in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
-            ' Save the image to the database
+
+            ' Save the image by connecting to the database
             If Not IsNothing(pctProdImage.Image) Then
                 Dim ms As New MemoryStream()
                 If OpenFileDialog1.FileName.ToLower().EndsWith(".jpg") Then
@@ -97,14 +115,26 @@ Public Class frmFujiMain
 
     'Deletes an item
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+
+        'Defining variable with the ProdID textbox
+        Dim ID As Integer = txtProdID.Text
+
         'Messae Box to confirm deletion of an item from the database
         Dim msgDelete = MessageBox.Show("Are you sure you want to delete this item?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
         If msgDelete = Windows.Forms.DialogResult.Yes Then
+
             BindingNavigatorDeleteItem.PerformClick()
 
-            'Re-bind the data source to refresh the DataGridView
-            dgvProduct.DataSource = Nothing 'Clear the current data source
-            dgvProduct.DataSource = search1() 'Re-bind the DataGridView to the updated search results
+            Dim query As String = "Delete Product where prodID = @prodId"
+            Using con As SqlConnection = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dbFuji.mdf;Integrated Security=True")
+                Using cmd As SqlCommand = New SqlCommand(query, con)
+                    cmd.Parameters.AddWithValue("@prodId", ID)
+                    con.Open()
+                    cmd.ExecuteNonQuery()
+                    con.Close()
+                    BindData()
+                End Using
+            End Using
         Else
             Exit Sub
         End If
