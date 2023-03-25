@@ -287,6 +287,7 @@ Partial Class frmFujiMain
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
+        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
         Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(65, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
@@ -467,7 +468,6 @@ Partial Class frmFujiMain
         Me.dgvProduct.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvProduct.AutoGenerateColumns = False
         Me.dgvProduct.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.dgvProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control

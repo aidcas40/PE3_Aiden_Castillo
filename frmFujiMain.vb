@@ -79,6 +79,10 @@ Public Class frmFujiMain
         chkProdDeluxe.Checked = False
         chkProdInStock.Checked = False
 
+        'Clears values for these fields
+        nudProdVolume.Text = ""
+        nudProdChapter.Text = ""
+
         'Re-bind the data source to refresh the DataGridView
         dgvProduct.DataSource = Nothing 'Clear the current data source
         dgvProduct.DataSource = search1() 'Re-bind the DataGridView to the updated search results
