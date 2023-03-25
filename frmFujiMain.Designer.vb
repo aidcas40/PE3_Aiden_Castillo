@@ -493,6 +493,7 @@ Partial Class frmFujiMain
         Me.dgvProduct.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvProduct.Location = New System.Drawing.Point(38, 400)
         Me.dgvProduct.Name = "dgvProduct"
+        Me.dgvProduct.RowTemplate.Height = 40
         Me.dgvProduct.Size = New System.Drawing.Size(842, 220)
         Me.dgvProduct.TabIndex = 19
         '

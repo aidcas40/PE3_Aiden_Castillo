@@ -9,7 +9,7 @@
 Imports System.IO
 Imports System.Data
 Imports System.Data.SqlClient
-Imports System.Text
+Imports System.Drawing.Imaging
 Public Class frmFujiMain
 
     Private Sub ProductBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles ProductBindingNavigatorSaveItem.Click
@@ -36,7 +36,7 @@ Public Class frmFujiMain
         dgvProduct.Columns(9).HeaderText = "Genre"
         dgvProduct.Columns(10).HeaderText = "Demographic"
         dgvProduct.Columns(11).HeaderText = "In Stock"
-        dgvProduct.Columns(12).HeaderText = "Deluxe"
+        dgvProduct.Columns(12).HeaderText = "Deluxe Edition"
 
     End Sub
 
@@ -68,17 +68,24 @@ Public Class frmFujiMain
             String.IsNullOrEmpty(cbxProdDemograph.Text) Then
             MessageBox.Show("Please enter a value in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
-
-            'Try
-            '    Dim con = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dbFuji.mdf;Integrated Security=True")
-            '    con.Open()
-            '    Dim que As String = "insert into Product (prodName,prodImage,prodAuthor,prodSerial,prodStatus,prodVolume,prodChapter,prodPublish,prodGenre,prodDemograph,prodInStock,prodDeluxe) 
-            '                        values (@d1,@d2,@d3,@d4,@d5,@d6,@d7,@d8,@d9,@d10,@d11,@d12,@d13)"
-            '    Dim cmd = New SqlConnection(que, con)
-            '    cmd.parameters.AddValue()
-            'Catch ex As Exception
-
-            'End Try
+            ' Save the image to the database
+            If Not IsNothing(pctProdImage.Image) Then
+                Dim ms As New MemoryStream()
+                If OpenFileDialog1.FileName.ToLower().EndsWith(".jpg") Then
+                    pctProdImage.Image.Save(ms, ImageFormat.Jpeg)
+                ElseIf OpenFileDialog1.FileName.ToLower().EndsWith(".png") Then
+                    pctProdImage.Image.Save(ms, ImageFormat.Png)
+                End If
+                Dim imageData As Byte() = ms.GetBuffer()
+                ms.Close()
+                Dim conn As New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dbFuji.mdf;Integrated Security=True")
+                Dim cmd As New SqlCommand("UPDATE Product SET prodImage = @ImageData WHERE prodID = @prodID", conn)
+                cmd.Parameters.AddWithValue("@ImageData", imageData)
+                cmd.Parameters.AddWithValue("@prodID", txtProdID.Text)
+                conn.Open()
+                cmd.ExecuteNonQuery()
+                conn.Close()
+            End If
 
             ProductBindingNavigatorSaveItem.PerformClick()
 
@@ -154,5 +161,10 @@ Public Class frmFujiMain
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    'Private Sub dgvProduct_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles dgvProduct.DataError
+    '    ' Suppress the error message
+    '    e.ThrowException = False
+    'End Sub
 
 End Class
