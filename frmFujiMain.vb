@@ -130,7 +130,7 @@ Public Class frmFujiMain
         Dim ID As Integer = txtProdID.Text
 
         'Messae Box to confirm deletion of an item from the database
-        Dim msgDelete = MessageBox.Show("Are you sure you want to delete this item?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+        Dim msgDelete = MessageBox.Show("Are you sure you want to delete this item?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If msgDelete = Windows.Forms.DialogResult.Yes Then
 
             BindingNavigatorDeleteItem.PerformClick()
@@ -179,7 +179,7 @@ Public Class frmFujiMain
 
     'Closes the entire application. Message box ask for confirmation to close application
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Dim msgClose = MessageBox.Show("Are you sure you want to close the application?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        Dim msgClose = MessageBox.Show("Are you sure you want to close the application?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If msgClose = Windows.Forms.DialogResult.Yes Then
             Application.Exit()
         Else

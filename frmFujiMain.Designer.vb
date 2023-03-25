@@ -445,7 +445,7 @@ Partial Class frmFujiMain
         Me.chkProdInStock.Location = New System.Drawing.Point(778, 227)
         Me.chkProdInStock.Name = "chkProdInStock"
         Me.chkProdInStock.Size = New System.Drawing.Size(81, 24)
-        Me.chkProdInStock.TabIndex = 10
+        Me.chkProdInStock.TabIndex = 11
         Me.chkProdInStock.Text = "In Stock"
         Me.chkProdInStock.UseVisualStyleBackColor = True
         '
@@ -455,7 +455,7 @@ Partial Class frmFujiMain
         Me.chkProdDeluxe.Location = New System.Drawing.Point(659, 227)
         Me.chkProdDeluxe.Name = "chkProdDeluxe"
         Me.chkProdDeluxe.Size = New System.Drawing.Size(118, 24)
-        Me.chkProdDeluxe.TabIndex = 9
+        Me.chkProdDeluxe.TabIndex = 10
         Me.chkProdDeluxe.Text = "Deluxe Edition"
         Me.chkProdDeluxe.UseVisualStyleBackColor = True
         '
@@ -746,7 +746,7 @@ Partial Class frmFujiMain
         Me.cbxProdGenre.Location = New System.Drawing.Point(659, 189)
         Me.cbxProdGenre.Name = "cbxProdGenre"
         Me.cbxProdGenre.Size = New System.Drawing.Size(200, 24)
-        Me.cbxProdGenre.TabIndex = 37
+        Me.cbxProdGenre.TabIndex = 9
         '
         'lblAddImage
         '
