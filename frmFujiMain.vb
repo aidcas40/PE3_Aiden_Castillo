@@ -5,6 +5,7 @@
 'School:			    Corozal Junior College
 'Course Number/Name:	CS206 - Programming II
 'Program Description:	This program demonstrates various database entry functionalities and controls using MS SQL (Individual Work).
+'                       My program is also based around a manga (Japanese comic books) cataloging application.
 '----------------------------------------------------------------------------------
 Imports System.IO
 Imports System.Data
@@ -12,11 +13,11 @@ Imports System.Data.SqlClient
 Imports System.Drawing.Imaging
 Public Class frmFujiMain
 
+    'Saves changes made to the database by validating and updating it
     Private Sub ProductBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles ProductBindingNavigatorSaveItem.Click
         Me.Validate()
         Me.ProductBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.DbFujiDataSet)
-
     End Sub
 
     Private Sub frmFujiMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -38,8 +39,11 @@ Public Class frmFujiMain
         dgvProduct.Columns(11).HeaderText = "In Stock"
         dgvProduct.Columns(12).HeaderText = "Deluxe Edition"
 
+        'Add Image label starts off with visible being false when the form loads
+        lblAddImage.Visible = False
     End Sub
 
+    'Public function that binds data from a the database to the DataGridView control named dgvProduct
     Public Sub BindData()
         Dim query As String = "SELECT * FROM Product"
         Using con As SqlConnection = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dbFuji.mdf;Integrated Security=True")
@@ -67,6 +71,8 @@ Public Class frmFujiMain
 
     'Adds new item
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        lblAddImage.Visible = True 'Makes Add Image label visible when Add Button is clicked
+
         BindingNavigatorAddNewItem.PerformClick()
 
         'Makes the checkboxes unchecked for new item when the add item button is clicked
@@ -86,7 +92,7 @@ Public Class frmFujiMain
             MessageBox.Show("Please enter a value in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
 
-            ' Save the image by connecting to the database
+            ' Saves the image by connecting to the database (Image is saved as byte)
             If Not IsNothing(pctProdImage.Image) Then
                 Dim ms As New MemoryStream()
                 If OpenFileDialog1.FileName.ToLower().EndsWith(".jpg") Then
@@ -116,7 +122,7 @@ Public Class frmFujiMain
     'Deletes an item
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
 
-        'Defining variable with the ProdID textbox
+        'Declaring and Defining variable to be used n the delete 
         Dim ID As Integer = txtProdID.Text
 
         'Messae Box to confirm deletion of an item from the database
@@ -125,6 +131,7 @@ Public Class frmFujiMain
 
             BindingNavigatorDeleteItem.PerformClick()
 
+            'Connects to the database in order to delete an item
             Dim query As String = "Delete Product where prodID = @prodId"
             Using con As SqlConnection = New SqlConnection("Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\dbFuji.mdf;Integrated Security=True")
                 Using cmd As SqlCommand = New SqlCommand(query, con)
@@ -176,9 +183,11 @@ Public Class frmFujiMain
         End If
     End Sub
 
+    'Opens up Windows File Manager whenever the picture box is clicked, so that the user can insert a picture
     Private Sub pctProdImage_Click(sender As Object, e As EventArgs) Handles pctProdImage.Click
         Try
             With OpenFileDialog1
+                'Filtering file type
                 .Filter = ("Image Files| *.png; *.Jpeg; *.jpg")
                 .FilterIndex = 1
             End With
@@ -186,15 +195,17 @@ Public Class frmFujiMain
             OpenFileDialog1.FileName = "" 'clear the file name'
             If OpenFileDialog1.ShowDialog() = Windows.Forms.DialogResult.OK Then
                 pctProdImage.Image = Image.FromFile(OpenFileDialog1.FileName)
+                lblAddImage.Visible = False 'Add Image label visiblility is set to false as an Image is chosen
             End If
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
 
+    'Function that suppresses/ignores Data Grid View error message when updating (commented out as the update button seems to function now)
     'Private Sub dgvProduct_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles dgvProduct.DataError
     '    ' Suppress the error message
     '    e.ThrowException = False
     'End Sub
-
 End Class

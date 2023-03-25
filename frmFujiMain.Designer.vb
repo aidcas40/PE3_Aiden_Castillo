@@ -23,7 +23,6 @@ Partial Class frmFujiMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim lblProdImage As System.Windows.Forms.Label
         Dim lblProdID As System.Windows.Forms.Label
         Dim lblProdName As System.Windows.Forms.Label
         Dim lblProdAuthor As System.Windows.Forms.Label
@@ -35,9 +34,9 @@ Partial Class frmFujiMain
         Dim lblProdChapter As System.Windows.Forms.Label
         Dim lblProdGenre As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFujiMain))
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ProductBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -95,7 +94,7 @@ Partial Class frmFujiMain
         Me.ProductTableAdapter = New PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.ProductTableAdapter()
         Me.TableAdapterManager = New PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.TableAdapterManager()
         Me.cbxProdGenre = New System.Windows.Forms.ComboBox()
-        lblProdImage = New System.Windows.Forms.Label()
+        Me.lblAddImage = New System.Windows.Forms.Label()
         lblProdID = New System.Windows.Forms.Label()
         lblProdName = New System.Windows.Forms.Label()
         lblProdAuthor = New System.Windows.Forms.Label()
@@ -117,15 +116,6 @@ Partial Class frmFujiMain
         CType(Me.pctProdImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudProdChapter, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'lblProdImage
-        '
-        lblProdImage.AutoSize = True
-        lblProdImage.Location = New System.Drawing.Point(71, 292)
-        lblProdImage.Name = "lblProdImage"
-        lblProdImage.Size = New System.Drawing.Size(74, 16)
-        lblProdImage.TabIndex = 3
-        lblProdImage.Text = "Add Image"
         '
         'lblProdID
         '
@@ -297,7 +287,6 @@ Partial Class frmFujiMain
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
-        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
         Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(65, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
@@ -474,32 +463,32 @@ Partial Class frmFujiMain
         Me.dgvProduct.AllowUserToAddRows = False
         Me.dgvProduct.AllowUserToDeleteRows = False
         Me.dgvProduct.AllowUserToResizeRows = False
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.dgvProduct.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.dgvProduct.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvProduct.AutoGenerateColumns = False
         Me.dgvProduct.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgvProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvProduct.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvProduct.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProduct.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewImageColumn1, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewCheckBoxColumn2})
         Me.dgvProduct.DataSource = Me.ProductBindingSource
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle9.NullValue = Nothing
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvProduct.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Inter", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.NullValue = Nothing
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvProduct.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvProduct.Location = New System.Drawing.Point(38, 400)
         Me.dgvProduct.Name = "dgvProduct"
         Me.dgvProduct.RowTemplate.Height = 40
@@ -759,6 +748,15 @@ Partial Class frmFujiMain
         Me.cbxProdGenre.Size = New System.Drawing.Size(200, 24)
         Me.cbxProdGenre.TabIndex = 37
         '
+        'lblAddImage
+        '
+        Me.lblAddImage.AutoSize = True
+        Me.lblAddImage.Location = New System.Drawing.Point(71, 292)
+        Me.lblAddImage.Name = "lblAddImage"
+        Me.lblAddImage.Size = New System.Drawing.Size(74, 16)
+        Me.lblAddImage.TabIndex = 38
+        Me.lblAddImage.Text = "Add Image"
+        '
         'frmFujiMain
         '
         Me.AcceptButton = Me.btnSearch
@@ -767,6 +765,7 @@ Partial Class frmFujiMain
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.CancelButton = Me.btnClose
         Me.ClientSize = New System.Drawing.Size(896, 672)
+        Me.Controls.Add(Me.lblAddImage)
         Me.Controls.Add(lblProdGenre)
         Me.Controls.Add(Me.cbxProdGenre)
         Me.Controls.Add(lblProdChapter)
@@ -798,7 +797,6 @@ Partial Class frmFujiMain
         Me.Controls.Add(Me.txtProdName)
         Me.Controls.Add(lblProdID)
         Me.Controls.Add(Me.txtProdID)
-        Me.Controls.Add(lblProdImage)
         Me.Controls.Add(Me.pctProdImage)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ProductBindingNavigator)
@@ -882,4 +880,5 @@ Partial Class frmFujiMain
     Friend WithEvents DataGridViewCheckBoxColumn1 As DataGridViewCheckBoxColumn
     Friend WithEvents DataGridViewCheckBoxColumn2 As DataGridViewCheckBoxColumn
     Friend WithEvents cbxProdGenre As ComboBox
+    Friend WithEvents lblAddImage As Label
 End Class
