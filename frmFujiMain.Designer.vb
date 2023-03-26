@@ -53,7 +53,7 @@ Partial Class frmFujiMain
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ProductBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.pctCompLogo = New System.Windows.Forms.PictureBox()
         Me.lblHeader = New System.Windows.Forms.Label()
         Me.txtProdID = New System.Windows.Forms.TextBox()
         Me.txtProdName = New System.Windows.Forms.TextBox()
@@ -95,6 +95,7 @@ Partial Class frmFujiMain
         Me.TableAdapterManager = New PE3_Aiden_Castillo.dbFujiDataSetTableAdapters.TableAdapterManager()
         Me.cbxProdGenre = New System.Windows.Forms.ComboBox()
         Me.lblAddImage = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         lblProdID = New System.Windows.Forms.Label()
         lblProdName = New System.Windows.Forms.Label()
         lblProdAuthor = New System.Windows.Forms.Label()
@@ -110,7 +111,7 @@ Partial Class frmFujiMain
         CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbFujiDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pctCompLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudProdVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvProduct, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pctProdImage, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,6 +120,7 @@ Partial Class frmFujiMain
         '
         'lblProdID
         '
+        lblProdID.AccessibleName = ""
         lblProdID.AutoSize = True
         lblProdID.Location = New System.Drawing.Point(232, 79)
         lblProdID.Name = "lblProdID"
@@ -332,7 +334,7 @@ Partial Class frmFujiMain
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(63, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.pctCompLogo)
         Me.Panel1.Controls.Add(Me.lblHeader)
         Me.Panel1.ForeColor = System.Drawing.SystemColors.Desktop
         Me.Panel1.Location = New System.Drawing.Point(0, 28)
@@ -340,16 +342,16 @@ Partial Class frmFujiMain
         Me.Panel1.Size = New System.Drawing.Size(896, 40)
         Me.Panel1.TabIndex = 2
         '
-        'PictureBox1
+        'pctCompLogo
         '
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(818, 3)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(41, 34)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.PictureBox1.TabIndex = 37
-        Me.PictureBox1.TabStop = False
+        Me.pctCompLogo.BackgroundImage = CType(resources.GetObject("pctCompLogo.BackgroundImage"), System.Drawing.Image)
+        Me.pctCompLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pctCompLogo.Location = New System.Drawing.Point(818, 3)
+        Me.pctCompLogo.Name = "pctCompLogo"
+        Me.pctCompLogo.Size = New System.Drawing.Size(41, 34)
+        Me.pctCompLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pctCompLogo.TabIndex = 37
+        Me.pctCompLogo.TabStop = False
         '
         'lblHeader
         '
@@ -813,7 +815,7 @@ Partial Class frmFujiMain
         CType(Me.DbFujiDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pctCompLogo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudProdVolume, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvProduct, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pctProdImage, System.ComponentModel.ISupportInitialize).EndInit()
@@ -864,7 +866,7 @@ Partial Class frmFujiMain
     Friend WithEvents btnClose As Button
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents pctCompLogo As PictureBox
     Friend WithEvents nudProdChapter As NumericUpDown
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
@@ -881,4 +883,5 @@ Partial Class frmFujiMain
     Friend WithEvents DataGridViewCheckBoxColumn2 As DataGridViewCheckBoxColumn
     Friend WithEvents cbxProdGenre As ComboBox
     Friend WithEvents lblAddImage As Label
+    Friend WithEvents Timer1 As Timer
 End Class

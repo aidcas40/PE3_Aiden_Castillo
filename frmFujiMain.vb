@@ -80,6 +80,8 @@ Public Class frmFujiMain
         chkProdInStock.Checked = False
 
         'Clears values for these fields
+        nudProdVolume.Value = Nothing
+        nudProdChapter.Value = Nothing
         nudProdVolume.Text = ""
         nudProdChapter.Text = ""
 
@@ -94,6 +96,11 @@ Public Class frmFujiMain
             String.IsNullOrEmpty(nudProdVolume.Text) OrElse String.IsNullOrEmpty(nudProdChapter.Text) OrElse dtpProdPublish.Value = Nothing OrElse String.IsNullOrEmpty(cbxProdGenre.Text) OrElse
             String.IsNullOrEmpty(cbxProdDemograph.Text) Then
             MessageBox.Show("Please enter a value in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+            'lbl.Text &= " *"
+            'Label1.ForeColor = Color.Red ' set the color of the asterisk to red
+            'Timer1.Interval = 5000 ' set the interval to 5000 milliseconds (5 seconds)
+            'Timer1.Start()
         Else
 
             ' Saves the image by connecting to the database (Image is saved as byte)
@@ -122,6 +129,12 @@ Public Class frmFujiMain
             dgvProduct.DataSource = search1() 'Re-bind the DataGridView to the updated search results
         End If
     End Sub
+
+    'Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+    '    Label1.Text = Label1.Text.Replace(" *", "")
+    '    Label1.ForeColor = Color.Black ' reset the color of the label to black
+    '    Timer1.Stop()
+    'End Sub
 
     'Deletes an item
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
