@@ -84,6 +84,7 @@ Public Class frmFujiMain
         nudProdChapter.Value = Nothing
         nudProdVolume.Text = ""
         nudProdChapter.Text = ""
+        dtpProdPublish.Value = DateTime.Today
 
         'Re-bind the data source to refresh the DataGridView
         dgvProduct.DataSource = Nothing 'Clear the current data source
@@ -97,10 +98,27 @@ Public Class frmFujiMain
             String.IsNullOrEmpty(cbxProdDemograph.Text) Then
             MessageBox.Show("Please enter a value in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
-            'lbl.Text &= " *"
-            'Label1.ForeColor = Color.Red ' set the color of the asterisk to red
-            'Timer1.Interval = 5000 ' set the interval to 5000 milliseconds (5 seconds)
-            'Timer1.Start()
+            'Change colors of required fields red for 8 seconds, to prompt user of all required fields
+            lbl2Name.Text = "*" & lbl2Name.Text
+            lbl2Name.ForeColor = Color.Red
+            lbl2Author.Text = "*" & lbl2Author.Text
+            lbl2Author.ForeColor = Color.Red
+            lbl2Serial.Text = "*" & lbl2Serial.Text
+            lbl2Serial.ForeColor = Color.Red
+            lbl2Demo.Text = "*" & lbl2Demo.Text
+            lbl2Demo.ForeColor = Color.Red
+            lbl2Volume.Text = "*" & lbl2Volume.Text
+            lbl2Volume.ForeColor = Color.Red
+            lbl2Chapter.Text = "*" & lbl2Chapter.Text
+            lbl2Chapter.ForeColor = Color.Red
+            lbl2Status.Text = "*" & lbl2Status.Text
+            lbl2Status.ForeColor = Color.Red
+            lbl2Publish.Text = "*" & lbl2Publish.Text
+            lbl2Publish.ForeColor = Color.Red
+            lbl2Genre.Text = "*" & lbl2Genre.Text
+            lbl2Genre.ForeColor = Color.Red
+            Timer1.Interval = 5000 ' set the interval to 5000 milliseconds (5 seconds)
+            Timer1.Start()
         Else
 
             ' Saves the image by connecting to the database (Image is saved as byte)
@@ -130,11 +148,29 @@ Public Class frmFujiMain
         End If
     End Sub
 
-    'Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-    '    Label1.Text = Label1.Text.Replace(" *", "")
-    '    Label1.ForeColor = Color.Black ' reset the color of the label to black
-    '    Timer1.Stop()
-    'End Sub
+    'Handles the timer functions when the timer stops
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        'Reverts required labels back to their original state
+        lbl2Name.Text = lbl2Name.Text.Replace("*", "")
+        lbl2Name.ForeColor = Color.Black ' reset the color of the label to black
+        lbl2Author.Text = lbl2Author.Text.Replace("*", "")
+        lbl2Author.ForeColor = Color.Black
+        lbl2Serial.Text = lbl2Serial.Text.Replace("*", "")
+        lbl2Serial.ForeColor = Color.Black
+        lbl2Demo.Text = lbl2Demo.Text.Replace("*", "")
+        lbl2Demo.ForeColor = Color.Black
+        lbl2Volume.Text = lbl2Volume.Text.Replace("*", "")
+        lbl2Volume.ForeColor = Color.Black
+        lbl2Chapter.Text = lbl2Chapter.Text.Replace("*", "")
+        lbl2Chapter.ForeColor = Color.Black
+        lbl2Status.Text = lbl2Status.Text.Replace("*", "")
+        lbl2Status.ForeColor = Color.Black
+        lbl2Publish.Text = lbl2Publish.Text.Replace("*", "")
+        lbl2Publish.ForeColor = Color.Black
+        lbl2Genre.Text = lbl2Genre.Text.Replace("*", "")
+        lbl2Genre.ForeColor = Color.Black
+        Timer1.Stop()
+    End Sub
 
     'Deletes an item
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
